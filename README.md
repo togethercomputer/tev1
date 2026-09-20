@@ -3,7 +3,7 @@
 **Small models for decisions with explicit options.**
 
 Give the model context, a question, and two to 24 choices. Get back one letter.
-open-jev fine-tunes **Qwen3.5-2B** with ordinary LoRA supervised fine-tuning,
+open-jev fine-tunes **Qwen3.5-2B and 4B** with ordinary LoRA supervised fine-tuning,
 keeping its standard language-model output head.
 
 ```text
@@ -16,21 +16,25 @@ Answer      A
 This is an independent, Jev-inspired research project. It is not affiliated with
 TypeSafe AI, Jev, or Kev, and is not trained on Jev's answers.
 
-**Status:** two training runs completed; latest checkpoint **2B v2.1**.
-Public weights are not yet published. The latest measured Together endpoint is
-`hassan/Qwen3.5-2B-jev-v2-1-9fea2a3a-203bb784`; it requires account access and is
-not a public shared endpoint or Hugging Face model ID.
+**Status:** latest evaluated checkpoints are **2B v2.1 and 4B v2.1**.
+Public weights are not yet published. The measured Together endpoints require
+account access; they are not public shared endpoints or Hugging Face model IDs:
+
+- 2B: `hassan/Qwen3.5-2B-jev-v2-1-9fea2a3a-203bb784`
+- 4B: `hassan/Qwen3.5-4B-jev-2-1-4286f48b-c0ad7564`
 
 | Training run | Model | Cost |
 |---|---|---:|
 | Original, 10,000 examples | `hassan/Qwen3.5-2B-jev-f321c13e` | $4.000 |
 | Continuation, 33,840 examples | `hassan/Qwen3.5-2B-jev-v2-1-9fea2a3a` | $9.671 |
-| **Total training** | | **$13.671** |
+| **Total 2B training** | | **$13.671** |
 
-Training charges are user-confirmed and exclude dedicated hosting and evaluation.
-The article's $4 headline refers to the first run.
+These 2B training charges are user-confirmed and exclude dedicated hosting,
+evaluation, and the separate 4B training. The article's $4 headline refers to
+the first 2B run.
 
-[Model card](MODEL_CARD.md) · [Latest evaluation](evaluation/v2.1/README.md) ·
+[2B model card](MODEL_CARD.md) · [2B evaluation](evaluation/v2.1/README.md) ·
+[4B evaluation](evaluation/v2.1-4b/README.md) · [Paper comparison](evaluation/papers-v2.1/README.md) ·
 [Original evaluation](evaluation/v1/README.md) · [v2.1 dataset](DATASET_V21.md) ·
 [Release guide](docs/RELEASE.md) ·
 [Training walkthrough](articles/how-to-train-your-own-jev-model-for-4-dollars.md)
@@ -57,25 +61,26 @@ quantized, or Mac inference support for this fine-tune.
 
 ## What works—and what needs work
 
-Both checkpoints produced **one valid answer letter on all 1,300 decision-evaluation
-requests**, without constrained decoding. The continuation improved several language
+Both latest checkpoints produced **one valid answer letter on all 1,300 decision-evaluation
+requests**, without constrained decoding. The 2B continuation improved several language
 tasks, especially textual inference, but familiar-policy accuracy regressed.
 
-Missing information remains the largest weakness: the latest checkpoint correctly
+Missing information remains a weakness: the latest 2B correctly
 marked unknown on **6/100** original policy-transfer missing-information cases,
 versus **3/100** for v1 and **99/100** for Jev. Output format is reliable on this
-sample; decision accuracy and calibrated confidence are separate concerns.
+sample; decision accuracy and calibrated confidence are separate concerns. The
+latest 4B recognized unknown in 78/100 of those cases.
 
-| Task | Examples | Original 2B | Latest 2B v2.1 | Jev 1.13 |
-|---|---:|---:|---:|---:|
-| Familiar policy rules | 150 | 92.7% | 82.0% | 97.3% |
-| News classification | 100 | 88.0% | 87.0% | 91.0% |
-| Yes/no questions | 200 | 81.0% | 83.0% | 89.5% |
-| Banking intent, candidate subsets | 200 | 77.5% | 79.0% | 86.5% |
-| Textual inference | 250 | 77.2% | 85.2% | 85.2% |
-| Five-level sentiment | 100 | 49.0% | 50.0% | 51.0% |
-| **Main test** | **1,000** | **78.6%** | **79.7%** | **85.3%** |
-| **Original policy-transfer split** | **300** | **52.3%** | **52.0%** | **99.3%** |
+| Task | Examples | Original 2B | 2B v2.1 | 4B v2.1 | Jev 1.13 |
+|---|---:|---:|---:|---:|---:|
+| Familiar policy rules | 150 | 92.7% | 82.0% | 100.0% | 97.3% |
+| News classification | 100 | 88.0% | 87.0% | 86.0% | 91.0% |
+| Yes/no questions | 200 | 81.0% | 83.0% | 90.0% | 89.5% |
+| Banking intent, candidate subsets | 200 | 77.5% | 79.0% | 83.5% | 86.5% |
+| Textual inference | 250 | 77.2% | 85.2% | 88.0% | 85.2% |
+| Five-level sentiment | 100 | 49.0% | 50.0% | 49.0% | 51.0% |
+| **Main test** | **1,000** | **78.6%** | **79.7%** | **85.2%** | **85.3%** |
+| **Original policy-transfer split** | **300** | **52.3%** | **52.0%** | **88.0%** | **99.3%** |
 
 Measured September 20, 2026 on the same v1 records and options, using each model's
 native API format. These are accuracies against dataset labels. The v1 failures
@@ -83,7 +88,14 @@ informed continuation training, so these are now **development benchmarks**, not
 untouched final tests. Policy-transfer structures were unseen in v1 training;
 that claim does not apply to v2.1. Use the reserved v2.1 evaluations for fresh
 comparisons. No untuned Qwen baseline has been run. See [the latest protocol and
-evidence](evaluation/v2.1/README.md).
+evidence](evaluation/v2.1/README.md) and the [4B report](evaluation/v2.1-4b/README.md).
+
+On the separate 891-paper, 24-category benchmark, judge agreement was **78.7%
+for 2B v2.1**, **86.1% for 4B v2.1**, and **91.2% for Jev**. These are agreements
+with Kimi K3/GPT 6 Astra consensus, not human-verified accuracy. Earlier paper
+failures informed the synthetic research exercises, and actual v2.1 training
+overlap has not been independently verified. See the
+[paper protocol and metrics](evaluation/papers-v2.1/README.md).
 
 The **original checkpoint's** brief H100 load test reached 61.7 successful
 requests/sec at concurrency 16 without errors; higher concurrency produced HTTP

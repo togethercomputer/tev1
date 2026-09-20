@@ -38,3 +38,7 @@ The v1 test failures informed the v2.1 training recipe. Exact v1 held-out record
 No paper benchmark or load test was run. Latency includes network and provider overhead and may include competing endpoint traffic. It is not a controlled hardware-speed comparison. Banking77 uses candidate subsets. Jev scores use its native Choice API. These are small task subsets with correlated policy groups, not proof of general superiority.
 
 The saved report.json contains original aggregate metrics. test.jsonl and policy_transfer.jsonl contain text-free per-record outcomes. Source passages, response bodies, and credentials are omitted. For the portable rerun command, see [the v1 evaluation guide](../v1/README.md#rerun-quality-evaluation). The unchanged v1 dataset manifest and comparator results remain in ../v1. These files record a historical run, not a new evaluation during documentation updates.
+
+The separate [4B v2.1 evaluation](../v2.1-4b/README.md) and
+[research-paper comparison](../papers-v2.1/README.md) provide the companion
+results used in the article's latest two charts.

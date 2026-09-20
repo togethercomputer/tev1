@@ -197,7 +197,9 @@ Policy transfer is outside this chart but remains a weakness: **52.0% for 2B, 88
 
 ### Research-paper classification
 
-We also classified papers into 24 categories. Of 1,018 papers, we used the 891 where Kimi K3 and GPT 6 Astra agreed on a label, excluding the other 127.
+This task came from [1kpapers.com](https://1kpapers.com), my project for exploring 1,018 AI research papers. The original pipeline used DeepSeek V4 Flash on Together to summarize each paper, then sent its title, summary, and 24 possible topics to Jev for classification.
+
+We evaluated our fine-tunes on that same classification task. Of the 1,018 papers, we used the 891 where Kimi K3 and GPT 6 Astra agreed on a label, excluding the other 127.
 
 ![Latest paper results: DeepSeek V4.1 Flash 92.9%, Jev 91.2%, Together-Jev 4B v2.1 86.1%, and Together-Jev 2B v2.1 78.7% agreement with judge consensus.](assets/research-paper-classification-v21-no-glm.png)
 

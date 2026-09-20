@@ -23,6 +23,11 @@ the fine-tuning data. Exposure during base-model pretraining is unknown.
 
 ## Method and limits
 
+The task originated in [1kpapers.com](https://1kpapers.com). Its original
+pipeline summarized 1,018 AI research papers with DeepSeek V4 Flash on Together,
+then sent each title, summary, and 24 candidate topics to Jev for classification.
+This evaluation compares models on that classification step.
+
 The paper state, rubric, and topic definitions matched the comparator experiments.
 Qwen used the training system instruction and native `state`/`question`/`options`
 JSON wrapper. A–X preserved the original taxonomy order. Generation used

@@ -90,7 +90,8 @@ that claim does not apply to v2.1. Use the reserved v2.1 evaluations for fresh
 comparisons. No untuned Qwen baseline has been run. See [the latest protocol and
 evidence](evaluation/v2.1/README.md) and the [4B report](evaluation/v2.1-4b/README.md).
 
-On the separate 891-paper, 24-category benchmark, judge agreement was **78.7%
+On the separate 891-paper, 24-category benchmark drawn from
+[1kpapers.com](https://1kpapers.com), judge agreement was **78.7%
 for 2B v2.1**, **86.1% for 4B v2.1**, and **91.2% for Jev**. These are agreements
 with Kimi K3/GPT 6 Astra consensus, not human-verified accuracy. Earlier paper
 failures informed the synthetic research exercises, and actual v2.1 training

@@ -17,6 +17,12 @@ Measured deployments:
 
 ## Method and limitations
 
+The task originated in [1kpapers.com](https://1kpapers.com), a project for
+exploring 1,018 AI research papers. Its original pipeline summarized each paper
+with DeepSeek V4 Flash on Together, then supplied the title, summary, and 24
+candidate topics to Jev. This benchmark compares models on that classification
+step, using the same paper inputs and category definitions.
+
 The benchmark uses the 891 of 1,018 papers where Kimi K3 and GPT 6 Astra agreed
 on one of 24 category labels, excluding 127 disagreements. Agreement with these
 model judges is not human-verified accuracy. The paper state, rubric, and topic

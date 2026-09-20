@@ -1,0 +1,406 @@
+{
+  "model": "hassan/Qwen3.5-4B-jev-2-1-4286f48b-c0ad7564",
+  "utc": "2026-09-20T22:05:04.876808+00:00",
+  "method": "30 sequential requests, one in flight, pooled HTTP connection, max_tokens 8, thinking disabled, temperature 0, no logprobs; full nonstreaming response latency from this Mac; first request reported separately, not proven cold model start. Other endpoint traffic not controlled.",
+  "requests": [
+    {
+      "index": 0,
+      "status": 200,
+      "latency_ms": 389.53,
+      "output": "H",
+      "usage": {
+        "prompt_tokens": 278,
+        "total_tokens": 280,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 1,
+      "status": 200,
+      "latency_ms": 319.41,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 164,
+        "total_tokens": 166,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 2,
+      "status": 200,
+      "latency_ms": 295.72,
+      "output": "A",
+      "usage": {
+        "prompt_tokens": 178,
+        "total_tokens": 180,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 3,
+      "status": 200,
+      "latency_ms": 284.04,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 179,
+        "total_tokens": 181,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 4,
+      "status": 200,
+      "latency_ms": 203.43,
+      "output": "E",
+      "usage": {
+        "prompt_tokens": 271,
+        "total_tokens": 273,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 5,
+      "status": 200,
+      "latency_ms": 196.57,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 219,
+        "total_tokens": 221,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 6,
+      "status": 200,
+      "latency_ms": 214.1,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 179,
+        "total_tokens": 181,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 7,
+      "status": 200,
+      "latency_ms": 320.17,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 155,
+        "total_tokens": 157,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 8,
+      "status": 200,
+      "latency_ms": 353.0,
+      "output": "A",
+      "usage": {
+        "prompt_tokens": 221,
+        "total_tokens": 223,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 9,
+      "status": 200,
+      "latency_ms": 359.03,
+      "output": "A",
+      "usage": {
+        "prompt_tokens": 169,
+        "total_tokens": 171,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 10,
+      "status": 200,
+      "latency_ms": 319.88,
+      "output": "E",
+      "usage": {
+        "prompt_tokens": 194,
+        "total_tokens": 196,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 11,
+      "status": 200,
+      "latency_ms": 226.52,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 226,
+        "total_tokens": 228,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 12,
+      "status": 200,
+      "latency_ms": 310.19,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 174,
+        "total_tokens": 176,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 13,
+      "status": 200,
+      "latency_ms": 303.5,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 183,
+        "total_tokens": 185,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 14,
+      "status": 200,
+      "latency_ms": 326.35,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 191,
+        "total_tokens": 193,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 15,
+      "status": 200,
+      "latency_ms": 212.84,
+      "output": "E",
+      "usage": {
+        "prompt_tokens": 197,
+        "total_tokens": 199,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 16,
+      "status": 200,
+      "latency_ms": 297.54,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 176,
+        "total_tokens": 178,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 17,
+      "status": 200,
+      "latency_ms": 493.96,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 203,
+        "total_tokens": 205,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 18,
+      "status": 200,
+      "latency_ms": 306.78,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 182,
+        "total_tokens": 184,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 19,
+      "status": 200,
+      "latency_ms": 209.56,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 200,
+        "total_tokens": 202,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 20,
+      "status": 200,
+      "latency_ms": 307.15,
+      "output": "D",
+      "usage": {
+        "prompt_tokens": 287,
+        "total_tokens": 289,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 21,
+      "status": 200,
+      "latency_ms": 289.41,
+      "output": "E",
+      "usage": {
+        "prompt_tokens": 204,
+        "total_tokens": 206,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 22,
+      "status": 200,
+      "latency_ms": 186.07,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 174,
+        "total_tokens": 176,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 23,
+      "status": 200,
+      "latency_ms": 203.88,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 206,
+        "total_tokens": 208,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 24,
+      "status": 200,
+      "latency_ms": 272.62,
+      "output": "A",
+      "usage": {
+        "prompt_tokens": 266,
+        "total_tokens": 268,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 25,
+      "status": 200,
+      "latency_ms": 210.99,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 204,
+        "total_tokens": 206,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 26,
+      "status": 200,
+      "latency_ms": 251.8,
+      "output": "A",
+      "usage": {
+        "prompt_tokens": 208,
+        "total_tokens": 210,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 27,
+      "status": 200,
+      "latency_ms": 319.77,
+      "output": "B",
+      "usage": {
+        "prompt_tokens": 181,
+        "total_tokens": 183,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 28,
+      "status": 200,
+      "latency_ms": 194.95,
+      "output": "A",
+      "usage": {
+        "prompt_tokens": 216,
+        "total_tokens": 218,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "index": 29,
+      "status": 200,
+      "latency_ms": 356.63,
+      "output": "C",
+      "usage": {
+        "prompt_tokens": 215,
+        "total_tokens": 217,
+        "completion_tokens": 2,
+        "reasoning_tokens": 0
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "summary": {
+    "successful": 30,
+    "first_request_ms": 389.53,
+    "warm_sample_size": 29,
+    "median_ms": 295.72,
+    "p95_ms": 359.03,
+    "min_ms": 186.07,
+    "max_ms": 493.96
+  }
+}

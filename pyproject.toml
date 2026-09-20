@@ -1,0 +1,8 @@
+[project]
+name = "open-jev"
+version = "0.1.0"
+description = "Qwen decision-model experiments, reproducible data, and evaluation"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = ["datasets==4.8.5", "transformers==5.17.0", "jinja2>=3.1,<4"]

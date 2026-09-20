@@ -1,0 +1,37 @@
+{
+  "id": "ft-0289519a-742b",
+  "status": "completed",
+  "model": "Qwen/Qwen3.5-2B",
+  "model_output_name": "hassan/Qwen3.5-2B-jev-v2-1-9fea2a3a",
+  "from_checkpoint": "ft-e3f96627-90fa",
+  "created_at": "2026-09-20T20:40:25.308Z",
+  "updated_at": "2026-09-20T20:55:57.662Z",
+  "n_epochs": 1,
+  "batch_size": 8,
+  "packing": true,
+  "max_seq_length": 4096,
+  "training_type": {
+    "type": "Lora",
+    "lora_r": 8,
+    "lora_alpha": 16,
+    "lora_trainable_modules": "all-linear"
+  },
+  "training_method": {
+    "method": "sft",
+    "train_on_inputs": "auto"
+  },
+  "random_seed": 42,
+  "learning_rate": 2e-05,
+  "lr_scheduler": {
+    "lr_scheduler_type": "cosine",
+    "lr_scheduler_args": {
+      "num_cycles": 0.5
+    }
+  },
+  "warmup_ratio": 0.03,
+  "gradient_accumulation_steps": 1,
+  "early_stopping_enabled": null,
+  "early_stopping_patience": null,
+  "early_stopping_warmup_evals": null,
+  "token_count": 16490223
+}

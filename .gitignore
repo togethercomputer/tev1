@@ -1,0 +1,26 @@
+.venv/
+.cache/
+__pycache__/
+data/
+*.egg-info/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+
+# Model downloads, release staging, and evaluation runs
+artifacts/
+dist/
+outputs/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+*.tar
+*.tar.zst
+*.zip

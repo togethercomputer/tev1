@@ -1,0 +1,14 @@
+{
+  "train": {
+    "format": "instruction",
+    "bytes": 10110613,
+    "sha256": "cbf8a98d404cd7cb70b451663938c9660c89ed013a28ef08c53e69620cc3d595",
+    "matches_local_v1": true
+  },
+  "dev": {
+    "format": "instruction",
+    "bytes": 1010931,
+    "sha256": "f7d7372a2ea92bd796e0080fa593a90c4ee94cb1813f445af3060b23a1abe07d",
+    "matches_local_v1": true
+  }
+}

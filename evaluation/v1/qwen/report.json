@@ -1,0 +1,299 @@
+{
+  "model": "hassan/Qwen3.5-2B-jev-f321c13e-20b140d0",
+  "utc_started": "2026-09-20T20:15:02.768384+00:00",
+  "method": {
+    "accuracy_max_tokens": 8,
+    "load_max_tokens": 1,
+    "temperature": 0,
+    "thinking": false,
+    "accuracy_concurrency": 8,
+    "client": "httpx HTTP/1.1 pooled connections on user Mac; network included",
+    "retries": 0,
+    "load": "closed-loop, 6 seconds per level, capped at 512 requests/level, warm/reused heldout prompts"
+  },
+  "test": {
+    "requests": 1000,
+    "http_successes": 1000,
+    "errors": 0,
+    "correct": 786,
+    "accuracy": 0.786,
+    "valid_labels": 1000,
+    "strict_single_labels": 1000,
+    "latency_ms": {
+      "p50": 302.79,
+      "p95": 410.89,
+      "p99": 549.43
+    },
+    "prompt_tokens": 214627,
+    "completion_tokens": 2000,
+    "wall_seconds": 39.28,
+    "by_source": {
+      "ag_news": {
+        "requests": 100,
+        "http_successes": 100,
+        "errors": 0,
+        "correct": 88,
+        "accuracy": 0.88,
+        "valid_labels": 100,
+        "strict_single_labels": 100,
+        "latency_ms": {
+          "p50": 306.99,
+          "p95": 391.57,
+          "p99": 538.18
+        },
+        "prompt_tokens": 20754,
+        "completion_tokens": 200
+      },
+      "banking77": {
+        "requests": 200,
+        "http_successes": 200,
+        "errors": 0,
+        "correct": 155,
+        "accuracy": 0.775,
+        "valid_labels": 200,
+        "strict_single_labels": 200,
+        "latency_ms": {
+          "p50": 301.97,
+          "p95": 497.0,
+          "p99": 549.43
+        },
+        "prompt_tokens": 46104,
+        "completion_tokens": 400
+      },
+      "boolq": {
+        "requests": 200,
+        "http_successes": 200,
+        "errors": 0,
+        "correct": 162,
+        "accuracy": 0.81,
+        "valid_labels": 200,
+        "strict_single_labels": 200,
+        "latency_ms": {
+          "p50": 303.88,
+          "p95": 406.29,
+          "p99": 525.68
+        },
+        "prompt_tokens": 50486,
+        "completion_tokens": 400
+      },
+      "mnli": {
+        "requests": 250,
+        "http_successes": 250,
+        "errors": 0,
+        "correct": 193,
+        "accuracy": 0.772,
+        "valid_labels": 250,
+        "strict_single_labels": 250,
+        "latency_ms": {
+          "p50": 302.7,
+          "p95": 449.46,
+          "p99": 831.78
+        },
+        "prompt_tokens": 45788,
+        "completion_tokens": 500
+      },
+      "policy": {
+        "requests": 150,
+        "http_successes": 150,
+        "errors": 0,
+        "correct": 139,
+        "accuracy": 0.9266666666666666,
+        "valid_labels": 150,
+        "strict_single_labels": 150,
+        "latency_ms": {
+          "p50": 302.21,
+          "p95": 408.16,
+          "p99": 528.47
+        },
+        "prompt_tokens": 32138,
+        "completion_tokens": 300
+      },
+      "sst5": {
+        "requests": 100,
+        "http_successes": 100,
+        "errors": 0,
+        "correct": 49,
+        "accuracy": 0.49,
+        "valid_labels": 100,
+        "strict_single_labels": 100,
+        "latency_ms": {
+          "p50": 300.02,
+          "p95": 385.09,
+          "p99": 523.49
+        },
+        "prompt_tokens": 19357,
+        "completion_tokens": 200
+      }
+    },
+    "policy_all_three_correct": {
+      "groups": 50,
+      "correct": 39
+    },
+    "raw_first_token_confidence": {
+      "count": 1000,
+      "ece_10_bins": 0.04462838192200654,
+      "note": "Full-vocabulary winning-token probability; not normalized over all allowed classes. Includes the stop/format training effects; no post-hoc calibration."
+    }
+  },
+  "policy_transfer": {
+    "requests": 300,
+    "http_successes": 300,
+    "errors": 0,
+    "correct": 157,
+    "accuracy": 0.5233333333333333,
+    "valid_labels": 300,
+    "strict_single_labels": 300,
+    "latency_ms": {
+      "p50": 304.49,
+      "p95": 500.44,
+      "p99": 594.88
+    },
+    "prompt_tokens": 69345,
+    "completion_tokens": 600,
+    "wall_seconds": 11.86,
+    "by_source": {
+      "policy": {
+        "requests": 300,
+        "http_successes": 300,
+        "errors": 0,
+        "correct": 157,
+        "accuracy": 0.5233333333333333,
+        "valid_labels": 300,
+        "strict_single_labels": 300,
+        "latency_ms": {
+          "p50": 304.49,
+          "p95": 500.44,
+          "p99": 594.88
+        },
+        "prompt_tokens": 69345,
+        "completion_tokens": 600
+      }
+    },
+    "policy_all_three_correct": {
+      "groups": 100,
+      "correct": 3
+    },
+    "raw_first_token_confidence": {
+      "count": 300,
+      "ece_10_bins": 0.15480174472562608,
+      "note": "Full-vocabulary winning-token probability; not normalized over all allowed classes. Includes the stop/format training effects; no post-hoc calibration."
+    }
+  },
+  "load": [
+    {
+      "requests": 50,
+      "http_successes": 50,
+      "errors": 0,
+      "correct": 38,
+      "accuracy": 0.76,
+      "valid_labels": 50,
+      "strict_single_labels": 50,
+      "latency_ms": {
+        "p50": 104.5,
+        "p95": 198.35,
+        "p99": 240.44
+      },
+      "prompt_tokens": 10521,
+      "completion_tokens": 50,
+      "concurrency": 1,
+      "wall_seconds": 6.034,
+      "successful_requests_per_second": 8.29
+    },
+    {
+      "requests": 134,
+      "http_successes": 134,
+      "errors": 0,
+      "correct": 107,
+      "accuracy": 0.7985074626865671,
+      "valid_labels": 134,
+      "strict_single_labels": 134,
+      "latency_ms": {
+        "p50": 184.15,
+        "p95": 265.75,
+        "p99": 280.64
+      },
+      "prompt_tokens": 30290,
+      "completion_tokens": 134,
+      "concurrency": 4,
+      "wall_seconds": 6.183,
+      "successful_requests_per_second": 21.67
+    },
+    {
+      "requests": 236,
+      "http_successes": 236,
+      "errors": 0,
+      "correct": 186,
+      "accuracy": 0.788135593220339,
+      "valid_labels": 236,
+      "strict_single_labels": 236,
+      "latency_ms": {
+        "p50": 201.32,
+        "p95": 295.96,
+        "p99": 336.97
+      },
+      "prompt_tokens": 50166,
+      "completion_tokens": 236,
+      "concurrency": 8,
+      "wall_seconds": 6.091,
+      "successful_requests_per_second": 38.75
+    },
+    {
+      "requests": 388,
+      "http_successes": 388,
+      "errors": 0,
+      "correct": 299,
+      "accuracy": 0.770618556701031,
+      "valid_labels": 388,
+      "strict_single_labels": 388,
+      "latency_ms": {
+        "p50": 240.27,
+        "p95": 352.5,
+        "p99": 773.22
+      },
+      "prompt_tokens": 82520,
+      "completion_tokens": 388,
+      "concurrency": 16,
+      "wall_seconds": 6.288,
+      "successful_requests_per_second": 61.7
+    },
+    {
+      "requests": 512,
+      "http_successes": 511,
+      "errors": 1,
+      "correct": 405,
+      "accuracy": 0.791015625,
+      "valid_labels": 511,
+      "strict_single_labels": 511,
+      "latency_ms": {
+        "p50": 305.1,
+        "p95": 530.59,
+        "p99": 838.48
+      },
+      "prompt_tokens": 109549,
+      "completion_tokens": 511,
+      "concurrency": 32,
+      "wall_seconds": 5.203,
+      "successful_requests_per_second": 98.22
+    },
+    {
+      "requests": 512,
+      "http_successes": 443,
+      "errors": 69,
+      "correct": 362,
+      "accuracy": 0.70703125,
+      "valid_labels": 443,
+      "strict_single_labels": 443,
+      "latency_ms": {
+        "p50": 390.46,
+        "p95": 658.85,
+        "p99": 701.7
+      },
+      "prompt_tokens": 94646,
+      "completion_tokens": 443,
+      "concurrency": 64,
+      "wall_seconds": 3.492,
+      "successful_requests_per_second": 126.86
+    }
+  ],
+  "load_stopped": "Error threshold exceeded"
+}

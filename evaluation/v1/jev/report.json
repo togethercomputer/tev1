@@ -1,0 +1,207 @@
+{
+  "started_utc": "2026-09-20T20:20:18.115634+00:00",
+  "requested_model": "typesafe/jev-1.13",
+  "method": {
+    "concurrency": 8,
+    "retries": 0,
+    "endpoint": "https://openrouter.ai/api/alpha/decisions",
+    "mapping": "One Choice question per record for every task; same state, question, option labels, keys and descriptions. No examples or answer labels supplied. Same option order. No tuning on test results.",
+    "latency": "End-to-end HTTP from Mac including OpenRouter gateway; not hardware latency or maximum capacity."
+  },
+  "test": {
+    "n": 1000,
+    "valid": 1000,
+    "errors": 0,
+    "correct": 853,
+    "accuracy": 0.853,
+    "latency_ms": {
+      "p50": 272.28,
+      "p95": 369.91,
+      "p99": 499.97
+    },
+    "cost_usd": 0.019959786,
+    "wall_seconds": 35.88,
+    "by_source": {
+      "ag_news": {
+        "n": 100,
+        "valid": 100,
+        "errors": 0,
+        "correct": 91,
+        "accuracy": 0.91,
+        "latency_ms": {
+          "p50": 273.79,
+          "p95": 353.39,
+          "p99": 366.73
+        },
+        "cost_usd": 0.001967238
+      },
+      "banking77": {
+        "n": 200,
+        "valid": 200,
+        "errors": 0,
+        "correct": 173,
+        "accuracy": 0.865,
+        "latency_ms": {
+          "p50": 270.4,
+          "p95": 358.34,
+          "p99": 438.13
+        },
+        "cost_usd": 0.00426405
+      },
+      "boolq": {
+        "n": 200,
+        "valid": 200,
+        "errors": 0,
+        "correct": 179,
+        "accuracy": 0.895,
+        "latency_ms": {
+          "p50": 279.9,
+          "p95": 370.19,
+          "p99": 544.15
+        },
+        "cost_usd": 0.004179504
+      },
+      "mnli": {
+        "n": 250,
+        "valid": 250,
+        "errors": 0,
+        "correct": 213,
+        "accuracy": 0.852,
+        "latency_ms": {
+          "p50": 268.03,
+          "p95": 393.71,
+          "p99": 1026.66
+        },
+        "cost_usd": 0.004603494
+      },
+      "policy": {
+        "n": 150,
+        "valid": 150,
+        "errors": 0,
+        "correct": 146,
+        "accuracy": 0.9733333333333334,
+        "latency_ms": {
+          "p50": 272.95,
+          "p95": 360.46,
+          "p99": 447.9
+        },
+        "cost_usd": 0.003011484
+      },
+      "sst5": {
+        "n": 100,
+        "valid": 100,
+        "errors": 0,
+        "correct": 51,
+        "accuracy": 0.51,
+        "latency_ms": {
+          "p50": 267.5,
+          "p95": 369.91,
+          "p99": 404.62
+        },
+        "cost_usd": 0.001934016
+      }
+    },
+    "paired": {
+      "both_correct": 730,
+      "jev_only_correct": 123,
+      "qwen_only_correct": 56
+    },
+    "policy_all_three_correct": {
+      "groups": 50,
+      "correct": 46
+    },
+    "policy_confusion": [
+      {
+        "expected": "unknown",
+        "predicted": "unknown",
+        "count": 46
+      },
+      {
+        "expected": "ineligible",
+        "predicted": "ineligible",
+        "count": 50
+      },
+      {
+        "expected": "eligible",
+        "predicted": "eligible",
+        "count": 50
+      },
+      {
+        "expected": "unknown",
+        "predicted": "ineligible",
+        "count": 4
+      }
+    ],
+    "resolved_models": {
+      "typesafe/jev-1.13-20260917": 1000
+    }
+  },
+  "policy_transfer": {
+    "n": 300,
+    "valid": 300,
+    "errors": 0,
+    "correct": 298,
+    "accuracy": 0.9933333333333333,
+    "latency_ms": {
+      "p50": 271.06,
+      "p95": 374.37,
+      "p99": 534.85
+    },
+    "cost_usd": 0.006237378,
+    "wall_seconds": 10.8,
+    "by_source": {
+      "policy": {
+        "n": 300,
+        "valid": 300,
+        "errors": 0,
+        "correct": 298,
+        "accuracy": 0.9933333333333333,
+        "latency_ms": {
+          "p50": 271.06,
+          "p95": 374.37,
+          "p99": 534.85
+        },
+        "cost_usd": 0.006237378
+      }
+    },
+    "paired": {
+      "both_correct": 157,
+      "jev_only_correct": 141,
+      "qwen_only_correct": 0
+    },
+    "policy_all_three_correct": {
+      "groups": 100,
+      "correct": 98
+    },
+    "policy_confusion": [
+      {
+        "expected": "unknown",
+        "predicted": "unknown",
+        "count": 99
+      },
+      {
+        "expected": "eligible",
+        "predicted": "eligible",
+        "count": 100
+      },
+      {
+        "expected": "ineligible",
+        "predicted": "ineligible",
+        "count": 99
+      },
+      {
+        "expected": "ineligible",
+        "predicted": "eligible",
+        "count": 1
+      },
+      {
+        "expected": "unknown",
+        "predicted": "ineligible",
+        "count": 1
+      }
+    ],
+    "resolved_models": {
+      "typesafe/jev-1.13-20260917": 300
+    }
+  }
+}

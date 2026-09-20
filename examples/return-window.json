@@ -1,0 +1,9 @@
+{
+  "state": "Returns are allowed within 30 days. This purchase was 12 days ago.",
+  "question": "Is this return within the allowed window?",
+  "options": [
+    {"label": "A", "key": "yes", "description": "Yes."},
+    {"label": "B", "key": "no", "description": "No."},
+    {"label": "C", "key": "unknown", "description": "Not enough information."}
+  ]
+}

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1310" viewBox="0 0 1600 1310">
+<rect width="1600" height="100%" fill="white" />
+<style>text{font-family:Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums}</style>
+<text x="64" y="87" font-size="49" fill="#172634" font-weight="700">Jev vs Together-Jev</text>
+<text x="66" y="134" font-size="26" fill="#74808B" font-weight="400">Finetuned Qwen 3.5 · 2B and 4B · v2.1</text>
+<rect x="66" y="178" width="16" height="16" rx="3" fill="#24384A" />
+<text x="94" y="194" font-size="22" fill="#172634" font-weight="400">Jev</text>
+<rect x="184" y="178" width="16" height="16" rx="3" fill="#7655D6" />
+<text x="212" y="194" font-size="22" fill="#172634" font-weight="400">Together-Jev 2B v2.1</text>
+<rect x="525" y="178" width="16" height="16" rx="3" fill="#168A80" />
+<text x="553" y="194" font-size="22" fill="#172634" font-weight="400">Together-Jev 4B v2.1</text>
+<text x="1490" y="239" font-size="20" fill="#74808B" font-weight="400" text-anchor="end">Accuracy (%)</text>
+<rect x="48" y="1060" width="1492" height="126" rx="12" fill="#F6F8FA" />
+<line x1="435.0" y1="265" x2="435.0" y2="1175" stroke="#E7EBEF" />
+<text x="435.0" y="1220" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">0</text>
+<line x1="631.0" y1="265" x2="631.0" y2="1175" stroke="#E7EBEF" />
+<text x="631.0" y="1220" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">20</text>
+<line x1="827.0" y1="265" x2="827.0" y2="1175" stroke="#E7EBEF" />
+<text x="827.0" y="1220" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">40</text>
+<line x1="1023.0" y1="265" x2="1023.0" y2="1175" stroke="#E7EBEF" />
+<text x="1023.0" y="1220" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">60</text>
+<line x1="1219.0" y1="265" x2="1219.0" y2="1175" stroke="#E7EBEF" />
+<text x="1219.0" y="1220" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">80</text>
+<line x1="1415.0" y1="265" x2="1415.0" y2="1175" stroke="#E7EBEF" />
+<text x="1415.0" y="1220" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">100</text>
+<text x="66" y="329" font-size="25" fill="#172634" font-weight="400">Familiar policy rules</text>
+<rect x="435" y="294" width="953.8666666666668" height="21" rx="3" fill="#24384A" />
+<text x="1400.8666666666668" y="312" font-size="22" fill="#24384A" font-weight="600">97.3%</text>
+<rect x="435" y="323" width="803.6" height="21" rx="3" fill="#7655D6" />
+<text x="1250.6" y="341" font-size="22" fill="#7655D6" font-weight="600">82.0%</text>
+<rect x="435" y="352" width="980.0000000000001" height="21" rx="3" fill="#168A80" />
+<text x="1427.0" y="370" font-size="22" fill="#168A80" font-weight="600">100.0%</text>
+<text x="66" y="453" font-size="25" fill="#172634" font-weight="400">News classification</text>
+<rect x="435" y="418" width="891.8000000000001" height="21" rx="3" fill="#24384A" />
+<text x="1338.8000000000002" y="436" font-size="22" fill="#24384A" font-weight="600">91.0%</text>
+<rect x="435" y="447" width="852.6" height="21" rx="3" fill="#7655D6" />
+<text x="1299.6" y="465" font-size="22" fill="#7655D6" font-weight="600">87.0%</text>
+<rect x="435" y="476" width="842.8000000000001" height="21" rx="3" fill="#168A80" />
+<text x="1289.8000000000002" y="494" font-size="22" fill="#168A80" font-weight="600">86.0%</text>
+<text x="66" y="577" font-size="25" fill="#172634" font-weight="400">Yes/no questions</text>
+<rect x="435" y="542" width="877.1" height="21" rx="3" fill="#24384A" />
+<text x="1324.1" y="560" font-size="22" fill="#24384A" font-weight="600">89.5%</text>
+<rect x="435" y="571" width="813.4000000000001" height="21" rx="3" fill="#7655D6" />
+<text x="1260.4" y="589" font-size="22" fill="#7655D6" font-weight="600">83.0%</text>
+<rect x="435" y="600" width="882.0000000000001" height="21" rx="3" fill="#168A80" />
+<text x="1329.0" y="618" font-size="22" fill="#168A80" font-weight="600">90.0%</text>
+<text x="66" y="701" font-size="25" fill="#172634" font-weight="400">Banking intent</text>
+<rect x="435" y="666" width="847.7" height="21" rx="3" fill="#24384A" />
+<text x="1294.7" y="684" font-size="22" fill="#24384A" font-weight="600">86.5%</text>
+<rect x="435" y="695" width="774.2" height="21" rx="3" fill="#7655D6" />
+<text x="1221.2" y="713" font-size="22" fill="#7655D6" font-weight="600">79.0%</text>
+<rect x="435" y="724" width="818.3000000000001" height="21" rx="3" fill="#168A80" />
+<text x="1265.3000000000002" y="742" font-size="22" fill="#168A80" font-weight="600">83.5%</text>
+<text x="66" y="825" font-size="25" fill="#172634" font-weight="400">Textual inference</text>
+<rect x="435" y="790" width="834.96" height="21" rx="3" fill="#24384A" />
+<text x="1281.96" y="808" font-size="22" fill="#24384A" font-weight="600">85.2%</text>
+<rect x="435" y="819" width="834.96" height="21" rx="3" fill="#7655D6" />
+<text x="1281.96" y="837" font-size="22" fill="#7655D6" font-weight="600">85.2%</text>
+<rect x="435" y="848" width="862.4000000000001" height="21" rx="3" fill="#168A80" />
+<text x="1309.4" y="866" font-size="22" fill="#168A80" font-weight="600">88.0%</text>
+<text x="66" y="949" font-size="25" fill="#172634" font-weight="400">Five-level sentiment</text>
+<rect x="435" y="914" width="499.8" height="21" rx="3" fill="#24384A" />
+<text x="946.8" y="932" font-size="22" fill="#24384A" font-weight="600">51.0%</text>
+<rect x="435" y="943" width="490.00000000000006" height="21" rx="3" fill="#7655D6" />
+<text x="937.0" y="961" font-size="22" fill="#7655D6" font-weight="600">50.0%</text>
+<rect x="435" y="972" width="480.20000000000005" height="21" rx="3" fill="#168A80" />
+<text x="927.2" y="990" font-size="22" fill="#168A80" font-weight="600">49.0%</text>
+<text x="66" y="1123" font-size="25" fill="#172634" font-weight="600">Main test</text>
+<text x="66" y="1153" font-size="19" fill="#74808B" font-weight="400">1,000 examples</text>
+<rect x="435" y="1088" width="835.94" height="21" rx="3" fill="#24384A" />
+<text x="1282.94" y="1106" font-size="22" fill="#24384A" font-weight="600">85.3%</text>
+<rect x="435" y="1117" width="781.0600000000001" height="21" rx="3" fill="#7655D6" />
+<text x="1228.06" y="1135" font-size="22" fill="#7655D6" font-weight="600">79.7%</text>
+<rect x="435" y="1146" width="834.96" height="21" rx="3" fill="#168A80" />
+<text x="1281.96" y="1164" font-size="22" fill="#168A80" font-weight="600">85.2%</text>
+<text x="66" y="1270" font-size="19" fill="#74808B" font-weight="400">Development benchmarks informed v2.1 training; these are not untouched final evaluations.</text>
+</svg>

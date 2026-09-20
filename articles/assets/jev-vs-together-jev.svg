@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200">
+<rect width="1600" height="1200" fill="white"/>
+<style>text{font-family:Arial,Helvetica,sans-serif} .value{font-size:23px;font-weight:600;font-variant-numeric:tabular-nums}</style>
+<text x="64" y="87" font-size="49" fill="#172634" font-weight="700" >Jev vs Together-Jev</text>
+<text x="66" y="131" font-size="25" fill="#74808B" font-weight="400" >Together-Jev: finetuned Qwen 3.5 2B</text>
+<rect x="66" y="178" width="16" height="16" rx="3" fill="#24384A"/>
+<text x="94" y="194" font-size="22" fill="#172634" font-weight="400" >Jev</text>
+<rect x="174" y="178" width="16" height="16" rx="3" fill="#7655D6"/>
+<text x="202" y="194" font-size="22" fill="#172634" font-weight="400" >Together-Jev</text>
+<text x="1480" y="194" font-size="20" fill="#74808B" font-weight="400" text-anchor="end">Score (%)</text>
+<rect x="48" y="885" width="1492" height="224" rx="12" fill="#F6F8FA"/>
+<line x1="435.0" y1="235" x2="435.0" y2="1090" stroke="#E7EBEF" stroke-width="1"/>
+<text x="435.0" y="1144" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">0</text>
+<line x1="631.0" y1="235" x2="631.0" y2="1090" stroke="#E7EBEF" stroke-width="1"/>
+<text x="631.0" y="1144" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">20</text>
+<line x1="827.0" y1="235" x2="827.0" y2="1090" stroke="#E7EBEF" stroke-width="1"/>
+<text x="827.0" y="1144" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">40</text>
+<line x1="1023.0" y1="235" x2="1023.0" y2="1090" stroke="#E7EBEF" stroke-width="1"/>
+<text x="1023.0" y="1144" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">60</text>
+<line x1="1219.0" y1="235" x2="1219.0" y2="1090" stroke="#E7EBEF" stroke-width="1"/>
+<text x="1219.0" y="1144" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">80</text>
+<line x1="1415.0" y1="235" x2="1415.0" y2="1090" stroke="#E7EBEF" stroke-width="1"/>
+<text x="1415.0" y="1144" font-size="19" fill="#74808B" font-weight="400" text-anchor="middle">100</text>
+<text x="66" y="298" font-size="25" fill="#172634" font-weight="400" >Familiar policy rules</text>
+<rect x="435" y="266" width="953.5400000000001" height="23" rx="3" fill="#24384A"/>
+<text x="1400.54" y="285" font-size="23" fill="#24384A" font-weight="600" >97.3%</text>
+<rect x="435" y="298" width="908.4600000000002" height="23" rx="3" fill="#7655D6"/>
+<text x="1355.46" y="317" font-size="23" fill="#7655D6" font-weight="600" >92.7%</text>
+<text x="66" y="399" font-size="25" fill="#172634" font-weight="400" >News classification</text>
+<rect x="435" y="367" width="891.8000000000001" height="23" rx="3" fill="#24384A"/>
+<text x="1338.8000000000002" y="386" font-size="23" fill="#24384A" font-weight="600" >91%</text>
+<rect x="435" y="399" width="862.4000000000001" height="23" rx="3" fill="#7655D6"/>
+<text x="1309.4" y="418" font-size="23" fill="#7655D6" font-weight="600" >88%</text>
+<text x="66" y="500" font-size="25" fill="#172634" font-weight="400" >Yes/no questions</text>
+<rect x="435" y="468" width="877.1" height="23" rx="3" fill="#24384A"/>
+<text x="1324.1" y="487" font-size="23" fill="#24384A" font-weight="600" >89.5%</text>
+<rect x="435" y="500" width="793.8000000000001" height="23" rx="3" fill="#7655D6"/>
+<text x="1240.8000000000002" y="519" font-size="23" fill="#7655D6" font-weight="600" >81%</text>
+<text x="66" y="601" font-size="25" fill="#172634" font-weight="400" >Banking intent</text>
+<rect x="435" y="569" width="847.7" height="23" rx="3" fill="#24384A"/>
+<text x="1294.7" y="588" font-size="23" fill="#24384A" font-weight="600" >86.5%</text>
+<rect x="435" y="601" width="759.5" height="23" rx="3" fill="#7655D6"/>
+<text x="1206.5" y="620" font-size="23" fill="#7655D6" font-weight="600" >77.5%</text>
+<text x="66" y="702" font-size="25" fill="#172634" font-weight="400" >Textual inference</text>
+<rect x="435" y="670" width="834.96" height="23" rx="3" fill="#24384A"/>
+<text x="1281.96" y="689" font-size="23" fill="#24384A" font-weight="600" >85.2%</text>
+<rect x="435" y="702" width="756.5600000000001" height="23" rx="3" fill="#7655D6"/>
+<text x="1203.56" y="721" font-size="23" fill="#7655D6" font-weight="600" >77.2%</text>
+<text x="66" y="803" font-size="25" fill="#172634" font-weight="400" >Five-level sentiment</text>
+<rect x="435" y="771" width="499.8" height="23" rx="3" fill="#24384A"/>
+<text x="946.8" y="790" font-size="23" fill="#24384A" font-weight="600" >51%</text>
+<rect x="435" y="803" width="480.20000000000005" height="23" rx="3" fill="#7655D6"/>
+<text x="927.2" y="822" font-size="23" fill="#7655D6" font-weight="600" >49%</text>
+<text x="66" y="947" font-size="25" fill="#172634" font-weight="600" >Main test</text>
+<text x="66" y="976" font-size="19" fill="#74808B" font-weight="400" >1,000 examples</text>
+<rect x="435" y="915" width="835.94" height="23" rx="3" fill="#24384A"/>
+<text x="1282.94" y="934" font-size="23" fill="#24384A" font-weight="600" >85.3%</text>
+<rect x="435" y="947" width="770.28" height="23" rx="3" fill="#7655D6"/>
+<text x="1217.28" y="966" font-size="23" fill="#7655D6" font-weight="600" >78.6%</text>
+<text x="66" y="1059" font-size="25" fill="#172634" font-weight="600" >Unseen policies</text>
+<text x="66" y="1088" font-size="19" fill="#74808B" font-weight="400" >300 examples</text>
+<rect x="435" y="1027" width="973.14" height="23" rx="3" fill="#24384A"/>
+<text x="1420.1399999999999" y="1046" font-size="23" fill="#24384A" font-weight="600" >99.3%</text>
+<rect x="435" y="1059" width="512.54" height="23" rx="3" fill="#7655D6"/>
+<text x="959.54" y="1078" font-size="23" fill="#7655D6" font-weight="600" >52.3%</text>
+<text x="66" y="1144" font-size="17" fill="#74808B" font-weight="400" >Results as provided</text>
+</svg>

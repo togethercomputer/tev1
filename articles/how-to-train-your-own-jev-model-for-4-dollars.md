@@ -127,7 +127,7 @@ export JEV_MODEL='your-deployed-endpoint'
 python examples/decide.py examples/return-window.json
 ```
 
-The client sends the same system instruction and decision format used in training, with temperature 0, `max_tokens=8`, and `enable_thinking=false` in `chat_template_kwargs`. It rejects responses that aren't one of the allowed letters. A generic chat prompt can still produce prose, so the decision format matters.
+The client sends the same system instruction and decision format used in training, with temperature 0, `max_tokens=8`, and `enable_thinking=false` in `chat_template_kwargs`. It now also constrains output to the supplied letters with regex, requests `logprobs=5`, and returns the raw token logprobs alongside the selected option. It rejects responses that aren't one of the allowed letters. See the [decoding comparison](../evaluation/decoding/README.md) for the matched 4B test.
 
 We also used those generation settings for quality evaluation, with logprobs enabled. All 1,300 outputs contained exactly one allowed letter without constrained decoding. Giving the model eight output tokens let us check whether it would add unwanted text.
 

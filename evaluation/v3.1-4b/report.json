@@ -1,0 +1,116 @@
+{
+  "model": "hassan/Qwen3.5-4B-v3.1-a9db1708-e46d1350",
+  "hashes": {
+    "test": "0b94c2530c3b86b7d8c182eb137859dd22af88379a9b2b3e0c32bf81a38c71bd",
+    "policy_transfer": "b5454f240b5a76d64208576e4b8999b92c94066030879579df89707c896e7f98"
+  },
+  "method": "1300 v1 development records; regex per option list, logprobs5, max_tokens8, temperature0, thinking off, concurrency8, shuffle42, pooled HTTP, no quality retries; readiness probes on dev excluded. Historical v2.1 regex baseline reused; latency is not a controlled hardware comparison.",
+  "test": {
+    "n": 1000,
+    "correct": 853,
+    "accuracy": 0.853,
+    "valid": 1000,
+    "errors": 0,
+    "median_ms": 466.865,
+    "p95_ms": 645.36,
+    "by_source": {
+      "ag_news": {
+        "n": 100,
+        "correct": 86,
+        "accuracy": 0.86,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 450.45000000000005,
+        "p95_ms": 624.77
+      },
+      "banking77": {
+        "n": 200,
+        "correct": 167,
+        "accuracy": 0.835,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 470.73,
+        "p95_ms": 643.42
+      },
+      "boolq": {
+        "n": 200,
+        "correct": 179,
+        "accuracy": 0.895,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 475.08,
+        "p95_ms": 647.18
+      },
+      "mnli": {
+        "n": 250,
+        "correct": 224,
+        "accuracy": 0.896,
+        "valid": 250,
+        "errors": 0,
+        "median_ms": 465.70000000000005,
+        "p95_ms": 645.36
+      },
+      "policy": {
+        "n": 150,
+        "correct": 150,
+        "accuracy": 1.0,
+        "valid": 150,
+        "errors": 0,
+        "median_ms": 460.19500000000005,
+        "p95_ms": 645.5
+      },
+      "sst5": {
+        "n": 100,
+        "correct": 47,
+        "accuracy": 0.47,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 475.6,
+        "p95_ms": 748.5
+      }
+    },
+    "paired": {
+      "fixed": 15,
+      "regressed": 14,
+      "baseline_correct": 852
+    }
+  },
+  "policy_transfer": {
+    "n": 300,
+    "correct": 266,
+    "accuracy": 0.8866666666666667,
+    "valid": 300,
+    "errors": 0,
+    "median_ms": 462.03,
+    "p95_ms": 652.92,
+    "by_source": {
+      "policy": {
+        "n": 300,
+        "correct": 266,
+        "accuracy": 0.8866666666666667,
+        "valid": 300,
+        "errors": 0,
+        "median_ms": 462.03,
+        "p95_ms": 652.92
+      }
+    },
+    "paired": {
+      "fixed": 5,
+      "regressed": 3,
+      "baseline_correct": 264
+    }
+  },
+  "missing_information": {
+    "n": 100,
+    "correct": 77,
+    "accuracy": 0.77,
+    "valid": 100,
+    "errors": 0,
+    "median_ms": 474.54,
+    "p95_ms": 641.07
+  },
+  "policy_groups": {
+    "n": 100,
+    "all_correct": 76
+  }
+}

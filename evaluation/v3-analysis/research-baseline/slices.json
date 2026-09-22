@@ -1,0 +1,102 @@
+{
+  "by_topic": {
+    "coding-agents": [
+      8,
+      8
+    ],
+    "document-ocr": [
+      8,
+      8
+    ],
+    "reasoning-methods": [
+      6,
+      8
+    ],
+    "agent-skills": [
+      8,
+      8
+    ],
+    "spatial-3d": [
+      8,
+      8
+    ],
+    "research-automation": [
+      3,
+      8
+    ],
+    "image-generation": [
+      8,
+      8
+    ],
+    "agent-benchmarks": [
+      7,
+      8
+    ],
+    "rl-for-reasoning": [
+      8,
+      8
+    ],
+    "video-understanding": [
+      8,
+      8
+    ],
+    "diffusion-lms": [
+      8,
+      8
+    ],
+    "audio-speech": [
+      4,
+      8
+    ],
+    "agent-training": [
+      5,
+      8
+    ],
+    "long-context": [
+      3,
+      8
+    ],
+    "vlm-architectures": [
+      8,
+      8
+    ],
+    "model-efficiency": [
+      8,
+      8
+    ],
+    "video-generation": [
+      8,
+      8
+    ],
+    "model-architecture": [
+      8,
+      8
+    ],
+    "interpretability-analysis": [
+      8,
+      8
+    ],
+    "search-agents": [
+      8,
+      8
+    ],
+    "data-curation": [
+      8,
+      8
+    ],
+    "science-medicine": [
+      4,
+      8
+    ],
+    "robot-policies": [
+      8,
+      8
+    ],
+    "safety-alignment": [
+      8,
+      8
+    ]
+  },
+  "option_order_changes": 7,
+  "pairs": 96
+}

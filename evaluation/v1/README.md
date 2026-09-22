@@ -129,7 +129,9 @@ python scripts/evaluate.py --provider jev --model typesafe/jev-1.13 \
 ```
 
 Repeat with `policy_transfer.jsonl` and fresh output paths for the transfer split.
-The runner preserves the quality input formats and generation settings, logs the
+The runner preserves the decision input format but now uses regex-constrained
+letters and `logprobs: 5` for Together calls, unlike the original unconstrained
+quality runs above. It saves raw token logprobs and decoding settings, logs the
 input hash and model identity, and counts HTTP/format failures as incorrect. Its
 standard-library HTTP client differs from the original pooled client: rerun
 latencies must not be presented as a reproduction of the original load test.

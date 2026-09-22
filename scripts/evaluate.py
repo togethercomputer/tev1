@@ -67,12 +67,11 @@ def main():
         out.update(expected=row['answer'], expected_key=row['answer_key'], status=0,
                    valid=False, correct=False, predicted_key=None)
         body = payload(row, args.model) if args.provider == 'together' else jev_payload(row, args.model)
-        if args.provider == 'together':
-            body['logprobs'] = 1  # Match the historical quality run.
         start = time.perf_counter()
         try:
             request = urllib.request.Request(url, data=json.dumps(body).encode(),
-                headers={'Authorization': f'Bearer {key}', 'Content-Type': 'application/json'})
+                headers={'Authorization': f'Bearer {key}', 'Content-Type': 'application/json',
+                         'User-Agent': 'open-jev/0.1'})
             with urllib.request.urlopen(request, timeout=30) as response:
                 out['status'] = response.status
                 data = json.load(response)
@@ -80,6 +79,7 @@ def main():
                 answer = data['answers']['decision']['choice']
                 data_for_select = {'choices': [{'message': {'content': answer}}]}
             else:
+                out['logprobs'] = data['choices'][0].get('logprobs')
                 data_for_select = data
             chosen = select(data_for_select, row['options'])
             out.update(valid=True, correct=chosen['label'] == row['answer'], predicted_key=chosen['key'],
@@ -102,6 +102,10 @@ def main():
               'finished_utc': datetime.now(timezone.utc).isoformat(),
               'records_sha256': hashlib.sha256(raw).hexdigest(), 'limit': args.limit,
               'concurrency': args.concurrency, 'retries': 0,
+              'decoding': ({'type': 'regex', 'options': 'per-record labels',
+                            'logprobs': 5, 'max_tokens': 8, 'temperature': 0,
+                            'enable_thinking': False}
+                           if args.provider == 'together' else {'type': 'native_choice'}),
               'latency_note': 'urllib client; not connection-pooled like the historical run. Do not compare throughput.',
               **summarize(results),
               'by_source': {s: summarize([r for r in results if r['source'] == s])

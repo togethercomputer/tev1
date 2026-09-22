@@ -1,0 +1,12 @@
+{
+  "phishing_csv_sha256": "cebb407ff8630491a97400e37464b8db8dfc4299164fca51fcb4ac7eec8204ef",
+  "inputs_sha256": "b6eabb350c5636cdb9922750a54dd2be1ccbc7a3f197629519eb8de963de36d7",
+  "sources": {
+    "jev-phishing-bench": "1d56e8c64d029a9554a0874e2ef2901ed196e230",
+    "jev-benchmark": "d699d44558e27c9071caef8d5cea51615d5a3131",
+    "jev-measured": "4a12dfb3e59fe368760af44607745c97b65e3fa9"
+  },
+  "method": "Primary decision only; exact source states, instructions, criteria, labels and option order. Qwen native letter wrapper with regex; Jev one native choice. No tuning, no few-shot examples, no truncation. Phishing original asked nine questions; this matched rerun asks only verdict. One scored pass; one failed Jev HTTP 520 retried once. Report accuracy, not probability calibration.",
+  "exact_normalized_state_matches_to_local_new_v1_train_and_dev": [],
+  "overlap_caveat": "Checks local prepared recipe, not actual uploaded training data, semantic near-duplicates, or base-model pretraining."
+}

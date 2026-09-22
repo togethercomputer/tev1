@@ -1,0 +1,223 @@
+{
+  "attempt_stats": {
+    "qwen": {
+      "attempts": 2087,
+      "failed_attempts": 0
+    },
+    "jev": {
+      "attempts": 2088,
+      "failed_attempts": 1
+    }
+  },
+  "manifest": {
+    "phishing_csv_sha256": "cebb407ff8630491a97400e37464b8db8dfc4299164fca51fcb4ac7eec8204ef",
+    "inputs_sha256": "b6eabb350c5636cdb9922750a54dd2be1ccbc7a3f197629519eb8de963de36d7",
+    "sources": {
+      "jev-phishing-bench": "1d56e8c64d029a9554a0874e2ef2901ed196e230",
+      "jev-benchmark": "d699d44558e27c9071caef8d5cea51615d5a3131",
+      "jev-measured": "4a12dfb3e59fe368760af44607745c97b65e3fa9"
+    },
+    "method": "Primary decision only; exact source states, instructions, criteria, labels and option order. Qwen native letter wrapper with regex; Jev one native choice. No tuning, no few-shot examples, no truncation. Phishing original asked nine questions; this matched rerun asks only verdict. One scored pass; one failed Jev HTTP 520 retried once. Report accuracy, not probability calibration.",
+    "exact_normalized_state_matches_to_local_new_v1_train_and_dev": [],
+    "overlap_caveat": "Checks local prepared recipe, not actual uploaded training data, semantic near-duplicates, or base-model pretraining."
+  },
+  "suites": {
+    "phishing": {
+      "qwen": {
+        "n": 2000,
+        "correct": 1013,
+        "accuracy": 0.5065,
+        "wilson95": [
+          0.4845973363535637,
+          0.5283777420317798
+        ],
+        "macro_f1": 0.3476172330840685,
+        "errors": 0,
+        "median_ms": 544.0146670152899,
+        "reported_cost_usd": null,
+        "phishing_recall": 0.013,
+        "false_positive_rate": 0.0
+      },
+      "jev": {
+        "n": 2000,
+        "correct": 1259,
+        "accuracy": 0.6295,
+        "wilson95": [
+          0.6081052511789589,
+          0.6503982335751965
+        ],
+        "macro_f1": 0.6136575446920275,
+        "errors": 0,
+        "median_ms": 263.79516650922596,
+        "reported_cost_usd": 0.045985296,
+        "phishing_recall": 0.427,
+        "false_positive_rate": 0.168
+      },
+      "paired": {
+        "qwen_only_correct": 169,
+        "jev_only_correct": 415,
+        "mcnemar_exact_p": 7.369868597130834e-25
+      }
+    },
+    "tool_risk": {
+      "qwen": {
+        "n": 60,
+        "correct": 56,
+        "accuracy": 0.9333333333333333,
+        "wilson95": [
+          0.8407464268680316,
+          0.9737713012754932
+        ],
+        "macro_f1": 0.9364770054425227,
+        "errors": 0,
+        "median_ms": 524.3931879813317,
+        "reported_cost_usd": null
+      },
+      "jev": {
+        "n": 60,
+        "correct": 56,
+        "accuracy": 0.9333333333333333,
+        "wilson95": [
+          0.8407464268680316,
+          0.9737713012754932
+        ],
+        "macro_f1": 0.9358748778103616,
+        "errors": 0,
+        "median_ms": 259.07527047093026,
+        "reported_cost_usd": 0.00104013
+      },
+      "paired": {
+        "qwen_only_correct": 2,
+        "jev_only_correct": 2,
+        "mcnemar_exact_p": 1
+      },
+      "by_difficulty": {
+        "clear": {
+          "qwen": {
+            "n": 34,
+            "correct": 34,
+            "accuracy": 1.0,
+            "wilson95": [
+              0.8984854458466813,
+              1.0
+            ],
+            "macro_f1": 1.0,
+            "errors": 0,
+            "median_ms": 491.6339994815644,
+            "reported_cost_usd": null
+          },
+          "jev": {
+            "n": 34,
+            "correct": 34,
+            "accuracy": 1.0,
+            "wilson95": [
+              0.8984854458466813,
+              1.0
+            ],
+            "macro_f1": 1.0,
+            "errors": 0,
+            "median_ms": 263.10645797639154,
+            "reported_cost_usd": 0.000588084
+          }
+        },
+        "ambiguous": {
+          "qwen": {
+            "n": 14,
+            "correct": 11,
+            "accuracy": 0.7857142857142857,
+            "wilson95": [
+              0.5241076941340045,
+              0.9242861328730662
+            ],
+            "macro_f1": 0.7559523809523809,
+            "errors": 0,
+            "median_ms": 530.8977084932849,
+            "reported_cost_usd": null
+          },
+          "jev": {
+            "n": 14,
+            "correct": 10,
+            "accuracy": 0.7142857142857143,
+            "wilson95": [
+              0.453509156701075,
+              0.8827862135542279
+            ],
+            "macro_f1": 0.6984126984126984,
+            "errors": 0,
+            "median_ms": 257.94431200483814,
+            "reported_cost_usd": 0.00024066
+          }
+        },
+        "adversarial": {
+          "qwen": {
+            "n": 12,
+            "correct": 11,
+            "accuracy": 0.9166666666666666,
+            "wilson95": [
+              0.646120088858892,
+              0.9851349055950824
+            ],
+            "macro_f1": 0.8888888888888888,
+            "errors": 0,
+            "median_ms": 530.4178954975214,
+            "reported_cost_usd": null
+          },
+          "jev": {
+            "n": 12,
+            "correct": 12,
+            "accuracy": 1.0,
+            "wilson95": [
+              0.7575059933447693,
+              1.0
+            ],
+            "macro_f1": 1.0,
+            "errors": 0,
+            "median_ms": 254.8330834833905,
+            "reported_cost_usd": 0.00021138599999999998
+          }
+        }
+      }
+    },
+    "ticket_routing": {
+      "qwen": {
+        "n": 27,
+        "correct": 26,
+        "accuracy": 0.9629629629629629,
+        "wilson95": [
+          0.8171653406642474,
+          0.9934318540192146
+        ],
+        "macro_f1": 0.9532467532467532,
+        "errors": 0,
+        "median_ms": 843.4531659586355,
+        "reported_cost_usd": null
+      },
+      "jev": {
+        "n": 27,
+        "correct": 27,
+        "accuracy": 1.0,
+        "wilson95": [
+          0.875444970258139,
+          1.0000000000000002
+        ],
+        "macro_f1": 1.0,
+        "errors": 0,
+        "median_ms": 326.8118330161087,
+        "reported_cost_usd": 0.000443184
+      },
+      "paired": {
+        "qwen_only_correct": 0,
+        "jev_only_correct": 1,
+        "mcnemar_exact_p": 1
+      }
+    }
+  },
+  "models": {
+    "qwen": [
+      "hassan/Qwen3.5-4B-v1-new-69617472-bdc3c2fc"
+    ],
+    "jev": [
+      "typesafe/jev-1.13-20260917"
+    ]
+  }
+}

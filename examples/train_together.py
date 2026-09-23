@@ -51,7 +51,7 @@ def upload_ready(client, path, timeout=600):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data", type=Path, default=Path("data/v1/instruction"))
+    parser.add_argument("--data", type=Path, default=Path("data/new-v1/instruction"))
     parser.add_argument(
         "--launch", action="store_true", help="Upload files and start billed training"
     )

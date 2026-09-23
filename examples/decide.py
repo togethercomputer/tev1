@@ -35,7 +35,9 @@ def payload(record, model):
     return {"model": model, "messages": [
         {"role": "system", "content": SYSTEM},
         {"role": "user", "content": json.dumps(decision, ensure_ascii=False)}],
-        "temperature": 0, "max_tokens": 8,
+        "temperature": 0, "max_tokens": 8, "logprobs": 5,
+        "response_format": {"type": "regex",
+                            "pattern": "(" + "|".join(o["label"] for o in options) + ")"},
         "chat_template_kwargs": {"enable_thinking": False}}
 
 
@@ -69,10 +71,13 @@ def main():
         request = urllib.request.Request(
             "https://api.together.ai/v1/chat/completions",
             data=json.dumps(body).encode(),
-            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+            headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+                     "User-Agent": "open-jev/0.1"})
         with urllib.request.urlopen(request, timeout=30) as response:
             result = json.load(response)
-        print(json.dumps(select(result, row["options"])))
+        chosen = select(result, row["options"])
+        chosen["logprobs"] = result["choices"][0].get("logprobs")
+        print(json.dumps(chosen))
     except urllib.error.HTTPError as exc:
         parser.exit(1, f"Inference failed: HTTP {exc.code}. Check endpoint access and readiness.\n")
     except (ValueError, KeyError, IndexError, TypeError, OSError) as exc:

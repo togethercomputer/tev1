@@ -1,0 +1,299 @@
+{
+  "model": "hassan/Qwen3.5-4B-jev-2-1-4286f48b-c0ad7564",
+  "hashes": {
+    "test": "0b94c2530c3b86b7d8c182eb137859dd22af88379a9b2b3e0c32bf81a38c71bd",
+    "policy_transfer": "b5454f240b5a76d64208576e4b8999b92c94066030879579df89707c896e7f98"
+  },
+  "method": "3900 requests, shuffled seed42, total concurrency8, no retries, temperature0, logprobs5, thinking disabled. Plain and regex identical prompts and max_tokens8. JSON Schema replaces output instruction and includes schema; max_tokens64. Latencies exclude local semaphore wait; interleaved modes share endpoint; other traffic uncontrolled. Existing development tests, not fresh holdout.",
+  "summary": {
+    "test": {
+      "plain": {
+        "n": 1000,
+        "correct": 852,
+        "valid": 1000,
+        "errors": 0,
+        "median_ms": 305.45500000000004,
+        "p95_ms": 418.35,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 1000,
+        "correct": 852,
+        "valid": 1000,
+        "errors": 0,
+        "median_ms": 305.67999999999995,
+        "p95_ms": 421.47,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 1000,
+        "correct": 855,
+        "valid": 1000,
+        "errors": 0,
+        "median_ms": 335.635,
+        "p95_ms": 451.02,
+        "mean_output_tokens": 7.031
+      }
+    },
+    "policy_transfer": {
+      "plain": {
+        "n": 300,
+        "correct": 264,
+        "valid": 300,
+        "errors": 0,
+        "median_ms": 306.155,
+        "p95_ms": 423.17,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 300,
+        "correct": 264,
+        "valid": 300,
+        "errors": 0,
+        "median_ms": 303.01,
+        "p95_ms": 428.54,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 300,
+        "correct": 258,
+        "valid": 300,
+        "errors": 0,
+        "median_ms": 335.48,
+        "p95_ms": 451.67,
+        "mean_output_tokens": 7
+      }
+    }
+  },
+  "by_source": {
+    "ag_news": {
+      "plain": {
+        "n": 100,
+        "correct": 86,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 297.745,
+        "p95_ms": 412.94,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 100,
+        "correct": 86,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 312.39,
+        "p95_ms": 429.47,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 100,
+        "correct": 87,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 357.45500000000004,
+        "p95_ms": 460.85,
+        "mean_output_tokens": 7.13
+      }
+    },
+    "banking77": {
+      "plain": {
+        "n": 200,
+        "correct": 167,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 316.21500000000003,
+        "p95_ms": 416.83,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 200,
+        "correct": 167,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 306.08500000000004,
+        "p95_ms": 410.69,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 200,
+        "correct": 165,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 332.65999999999997,
+        "p95_ms": 436.23,
+        "mean_output_tokens": 7
+      }
+    },
+    "boolq": {
+      "plain": {
+        "n": 200,
+        "correct": 180,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 309.395,
+        "p95_ms": 421.29,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 200,
+        "correct": 180,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 310.79,
+        "p95_ms": 423.69,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 200,
+        "correct": 180,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 328.625,
+        "p95_ms": 454.3,
+        "mean_output_tokens": 7
+      }
+    },
+    "mnli": {
+      "plain": {
+        "n": 250,
+        "correct": 220,
+        "valid": 250,
+        "errors": 0,
+        "median_ms": 309.405,
+        "p95_ms": 424.32,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 250,
+        "correct": 220,
+        "valid": 250,
+        "errors": 0,
+        "median_ms": 295.9,
+        "p95_ms": 412.81,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 250,
+        "correct": 223,
+        "valid": 250,
+        "errors": 0,
+        "median_ms": 335.57500000000005,
+        "p95_ms": 458.76,
+        "mean_output_tokens": 7.072
+      }
+    },
+    "policy": {
+      "plain": {
+        "n": 150,
+        "correct": 150,
+        "valid": 150,
+        "errors": 0,
+        "median_ms": 299.14,
+        "p95_ms": 417.65,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 150,
+        "correct": 150,
+        "valid": 150,
+        "errors": 0,
+        "median_ms": 298.65999999999997,
+        "p95_ms": 425.91,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 150,
+        "correct": 150,
+        "valid": 150,
+        "errors": 0,
+        "median_ms": 346.83,
+        "p95_ms": 464.46,
+        "mean_output_tokens": 7
+      }
+    },
+    "sst5": {
+      "plain": {
+        "n": 100,
+        "correct": 49,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 295.315,
+        "p95_ms": 408.26,
+        "mean_output_tokens": 2
+      },
+      "regex": {
+        "n": 100,
+        "correct": 49,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 307.775,
+        "p95_ms": 438.64,
+        "mean_output_tokens": 2
+      },
+      "json_schema": {
+        "n": 100,
+        "correct": 50,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 326.71,
+        "p95_ms": 437.09,
+        "mean_output_tokens": 7
+      }
+    }
+  },
+  "paired_vs_plain": {
+    "test": {
+      "regex": {
+        "fixed": 0,
+        "regressed": 0,
+        "changed_answer": 0
+      },
+      "json_schema": {
+        "fixed": 18,
+        "regressed": 15,
+        "changed_answer": 39
+      }
+    },
+    "policy_transfer": {
+      "regex": {
+        "fixed": 0,
+        "regressed": 0,
+        "changed_answer": 0
+      },
+      "json_schema": {
+        "fixed": 1,
+        "regressed": 7,
+        "changed_answer": 8
+      }
+    }
+  },
+  "missing_information": {
+    "plain": {
+      "n": 100,
+      "correct": 78,
+      "valid": 100,
+      "errors": 0,
+      "median_ms": 290.84,
+      "p95_ms": 423.17,
+      "mean_output_tokens": 2
+    },
+    "regex": {
+      "n": 100,
+      "correct": 78,
+      "valid": 100,
+      "errors": 0,
+      "median_ms": 307.76,
+      "p95_ms": 461.28,
+      "mean_output_tokens": 2
+    },
+    "json_schema": {
+      "n": 100,
+      "correct": 73,
+      "valid": 100,
+      "errors": 0,
+      "median_ms": 332.355,
+      "p95_ms": 463.72,
+      "mean_output_tokens": 7
+    }
+  }
+}

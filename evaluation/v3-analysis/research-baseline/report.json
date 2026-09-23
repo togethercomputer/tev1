@@ -1,0 +1,32 @@
+{
+  "model": "hassan/Qwen3.5-4B-jev-2-1-4286f48b-c0ad7564",
+  "provider": "together",
+  "finished_utc": "2026-09-21T15:38:57.318656+00:00",
+  "records_sha256": "0814a87d35a45c529f18e80d70ff1a3e8e28b96841ba153add5d3fe2d4cf4328",
+  "limit": null,
+  "concurrency": 8,
+  "retries": 0,
+  "decoding": {
+    "type": "regex",
+    "options": "per-record labels",
+    "logprobs": 5,
+    "max_tokens": 8,
+    "temperature": 0,
+    "enable_thinking": false
+  },
+  "latency_note": "urllib client; not connection-pooled like the historical run. Do not compare throughput.",
+  "requests": 192,
+  "correct": 168,
+  "accuracy": 0.875,
+  "valid": 192,
+  "http_errors": 0,
+  "by_source": {
+    "research_taxonomy_v31": {
+      "requests": 192,
+      "correct": 168,
+      "accuracy": 0.875,
+      "valid": 192,
+      "http_errors": 0
+    }
+  }
+}

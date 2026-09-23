@@ -39,6 +39,10 @@ the first 2B run.
 [Release guide](docs/RELEASE.md) ·
 [Training walkthrough](articles/how-to-train-your-own-jev-model-for-4-dollars.md)
 
+**Next training dataset:** [v3.1 classification and research continuation](DATASET_V31.md) supersedes the v3 upload recommendation: 17,251 training examples, 4,260 validation examples, and the same reserved 500-example holdout. It has not been trained as a new model.
+
+**Fresh-start experiment:** [new v1 (v1 + v2.1 union)](DATASET_NEW_V1.md) provides 37,840 deduplicated training examples and 4,568 validation examples for the original Qwen3.5-4B. This is separate from the continuation datasets.
+
 ## Try a decision
 
 Requires Python 3.12+ and access to a deployed Together endpoint. Inference is
@@ -51,9 +55,24 @@ python examples/decide.py examples/return-window.json
 ```
 
 The example sends the training system instruction and `state/question/options`
-JSON, disables thinking, and validates that the response names an allowed option.
-It returns the selected letter and semantic key. Generic chat prompts can still
-produce prose; this model is trained for the decision format.
+JSON, disables thinking, and constrains decoding to the supplied letters using
+`response_format: {"type": "regex", "pattern": "(A|B|C)"}` (built from each
+request's options). All Together inference examples and the evaluation runner
+request `logprobs: 5`. The example returns the selected letter, semantic key,
+and raw token logprobs; the runner saves logprobs in each result and records its
+decoding settings in the report. Missing provider logprobs are represented as null.
+
+Convert a returned logprob to probability with `math.exp(logprob)`. Read the
+answer-letter token, not the end token. Top-five alternatives may omit valid
+options, especially for 24-way decisions; do not treat missing options as zero or
+renormalize a partial list as a full distribution. Our endpoint test showed
+regex constraints affect the reported probabilities. These are model preferences,
+not calibrated correctness confidence. Regex restricts completed answers to the
+listed letters; the client still validates responses and handles API failures.
+
+The archived scores below describe their original, unconstrained runs. New
+Together evaluations use regex plus logprobs. See the
+[decoding comparison](evaluation/decoding/README.md) for the matched 4B rerun.
 
 Public Hugging Face loading instructions will be added after the downloaded
 checkpoint has passed a local smoke test. We do not yet claim verified local,

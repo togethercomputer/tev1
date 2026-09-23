@@ -1,0 +1,31 @@
+{
+  "state": "The headphones sound fantastic and fit perfectly. I love them!",
+  "question": "What is the sentiment of this review?",
+  "options": [
+    {
+      "label": "A",
+      "key": "very_negative",
+      "description": "Very negative."
+    },
+    {
+      "label": "B",
+      "key": "negative",
+      "description": "Negative."
+    },
+    {
+      "label": "C",
+      "key": "neutral",
+      "description": "Neutral."
+    },
+    {
+      "label": "D",
+      "key": "positive",
+      "description": "Positive."
+    },
+    {
+      "label": "E",
+      "key": "very_positive",
+      "description": "Very positive."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "version": "new-v1",
+  "description": "Unique union of v1 and v2.1; original supervised examples and exports unchanged; no v3/v3.1 augmentation",
+  "seed": 42,
+  "input_hashes": {
+    "v2.1/records/train.jsonl": "b09d4325b325fe8d7742cf557398a9027133be48637edccd36cf84ef6924bec2",
+    "v2.1/instruction/train.jsonl": "6c0c8cd24edd98bab2af917701fb4904af79bdcd75ec22533c2473acde454893",
+    "v2.1/sft/train.jsonl": "08a8b39a9130ddd6abce6dc9bfcf767907960fd496943f7c79a77a8a70b74b9e",
+    "v1/records/train.jsonl": "3e293739058646496159c1d7e5ae4bc49b87f0d23a8bcdf09f31b4107a4303dc",
+    "v1/instruction/train.jsonl": "cbf8a98d404cd7cb70b451663938c9660c89ed013a28ef08c53e69620cc3d595",
+    "v1/sft/train.jsonl": "dc39e82d959cc2d314c67646fe824688334188f75e331847508afed3bb284e3b",
+    "v2.1/records/dev.jsonl": "3bd0adfb0e051e28e7dfaf2650304ea5dfc1e84496ecab09559f00725b43c92b",
+    "v2.1/instruction/dev.jsonl": "6ffc85aeb85db6f0da05713b7ac584425bc73a3d448914587d548fd6d8f2a639",
+    "v2.1/sft/dev.jsonl": "2e5fb79c15a50c7ac381ee330ccff650c13bf4ef30a5220cfc49114e051899c7",
+    "v1/records/dev.jsonl": "328ac2d7fb1e6d724f94982a799ad51adbd353d5aa04bc1e59f16f8cecf237ad",
+    "v1/instruction/dev.jsonl": "f7d7372a2ea92bd796e0080fa593a90c4ee94cb1813f445af3060b23a1abe07d",
+    "v1/sft/dev.jsonl": "0487438c22a83936755b3174a33efa515e876ebafb675f022605c3ffc6633fcb"
+  },
+  "deduplication": {
+    "train": {
+      "input_rows": 43840,
+      "exact_duplicates_removed": 6000,
+      "unique_rows": 37840
+    },
+    "dev": {
+      "input_rows": 4568,
+      "exact_duplicates_removed": 0,
+      "unique_rows": 4568
+    }
+  },
+  "integrity": {
+    "records": 42408,
+    "groups": 20776,
+    "cross_split_group_overlap": 0,
+    "cross_split_normalized_state_overlap": 0,
+    "cross_split_exact_prompt_overlap": 0
+  },
+  "files": {
+    "records/train.jsonl": "81eba531a7e49b7846cf94f386cca6b493de103f5a071676579e985db77697a5",
+    "instruction/train.jsonl": "98de561e584bd975d24ffdae9e864708967af01bcddae9755962ca2e163f2211",
+    "sft/train.jsonl": "e8f4682c20fcea8124a58afbbbb44b4c9209ccf2942b6c1702f81cbc52f6a456",
+    "records/dev.jsonl": "3efbbff9b87c53b7e8c59edda4d4c19ba6405103c2258406475c32defc18dc95",
+    "instruction/dev.jsonl": "add5417e688969e519d70d113f0ce745347e30f19d72b5f560fcad969625fe02",
+    "sft/dev.jsonl": "57aa962271e398e7913459bd7403129d4161498c4821bab4d802a0524dca4c20",
+    "membership.json": "0ead736eb43b3625515e875ee923b07e548025aa5b8abf0e12d6ff6e09c09f9a"
+  },
+  "splits": {
+    "train": {
+      "count": 37840,
+      "tokens": 16929529,
+      "max_tokens": 1526,
+      "sources": {
+        "policy_v2": 12000,
+        "ag_news": 1500,
+        "routing_v2": 6000,
+        "sst5": 2000,
+        "boolq": 3000,
+        "banking77": 3000,
+        "mnli": 5000,
+        "policy": 1500,
+        "research_taxonomy_v21": 3840
+      }
+    },
+    "dev": {
+      "count": 4568,
+      "tokens": 2218673,
+      "max_tokens": 1519,
+      "sources": {
+        "boolq": 400,
+        "sst5": 250,
+        "banking77": 400,
+        "policy_v2": 1200,
+        "routing_v2": 600,
+        "research_taxonomy_v21": 768,
+        "mnli": 550,
+        "ag_news": 250,
+        "policy": 150
+      }
+    }
+  },
+  "builder_sha256": "dd2dce2bfa281414256d5bf0d68ab45f7b98891d182f67b859eb89024c6513f8"
+}

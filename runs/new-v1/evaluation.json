@@ -1,0 +1,117 @@
+{
+  "model": "together/Tev1-4B-experimental",
+  "hashes": {
+    "test": "0b94c2530c3b86b7d8c182eb137859dd22af88379a9b2b3e0c32bf81a38c71bd",
+    "policy_transfer": "b5454f240b5a76d64208576e4b8999b92c94066030879579df89707c896e7f98"
+  },
+  "method": "1300 v1 development records; regex per option list, logprobs=true, top_logprobs=5, max_tokens8, temperature0, thinking off, concurrency8, shuffle42, pooled HTTP, no quality retries; readiness probes on dev excluded. Historical v2.1 regex baseline reused; latency is not a controlled hardware comparison.",
+  "test": {
+    "n": 1000,
+    "correct": 880,
+    "accuracy": 0.88,
+    "valid": 1000,
+    "errors": 0,
+    "median_ms": 300.49,
+    "p95_ms": 503.61,
+    "by_source": {
+      "ag_news": {
+        "n": 100,
+        "correct": 87,
+        "accuracy": 0.87,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 335.95500000000004,
+        "p95_ms": 516.14
+      },
+      "banking77": {
+        "n": 200,
+        "correct": 181,
+        "accuracy": 0.905,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 293.505,
+        "p95_ms": 498.73
+      },
+      "boolq": {
+        "n": 200,
+        "correct": 181,
+        "accuracy": 0.905,
+        "valid": 200,
+        "errors": 0,
+        "median_ms": 314.235,
+        "p95_ms": 522.6
+      },
+      "mnli": {
+        "n": 250,
+        "correct": 229,
+        "accuracy": 0.916,
+        "valid": 250,
+        "errors": 0,
+        "median_ms": 287.21,
+        "p95_ms": 503.61
+      },
+      "policy": {
+        "n": 150,
+        "correct": 150,
+        "accuracy": 1.0,
+        "valid": 150,
+        "errors": 0,
+        "median_ms": 295.01,
+        "p95_ms": 475.99
+      },
+      "sst5": {
+        "n": 100,
+        "correct": 52,
+        "accuracy": 0.52,
+        "valid": 100,
+        "errors": 0,
+        "median_ms": 315.42999999999995,
+        "p95_ms": 552.95
+      }
+    },
+    "paired": {
+      "fixed": 45,
+      "regressed": 17,
+      "baseline_correct": 852
+    }
+  },
+  "policy_transfer": {
+    "n": 300,
+    "correct": 300,
+    "accuracy": 1.0,
+    "valid": 300,
+    "errors": 0,
+    "median_ms": 289.57,
+    "p95_ms": 481.13,
+    "by_source": {
+      "policy": {
+        "n": 300,
+        "correct": 300,
+        "accuracy": 1.0,
+        "valid": 300,
+        "errors": 0,
+        "median_ms": 289.57,
+        "p95_ms": 481.13
+      }
+    },
+    "paired": {
+      "fixed": 36,
+      "regressed": 0,
+      "baseline_correct": 264
+    }
+  },
+  "missing_information": {
+    "n": 100,
+    "correct": 100,
+    "accuracy": 1.0,
+    "valid": 100,
+    "errors": 0,
+    "median_ms": 298.96500000000003,
+    "p95_ms": 457.37
+  },
+  "policy_groups": {
+    "n": 100,
+    "all_correct": 100
+  },
+  "transport_note": "Legacy custom endpoint accepted integer logprobs; Tev1 requires boolean plus top_logprobs. One successful readiness probe excluded; rejected readiness requests did not enter scores."
+}

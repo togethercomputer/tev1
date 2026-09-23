@@ -11,7 +11,8 @@ index. Synthetic records include the executable rule tree, facts and generator v
 | Banking77 | https://huggingface.co/datasets/legacy-datasets/banking77 | cc-by-4.0 |
 | AG News | https://huggingface.co/datasets/fancyzhx/ag_news | unknown |
 | SST-5 | https://huggingface.co/datasets/SetFit/sst5 | unspecified in repository card metadata |
-| Synthetic policies | `build_dataset.py`, generator policy-v1 | Created for this project; no external text or teacher model |
+| Synthetic policies and routing | `build_dataset.py`, `build_v2.py` | Created for this project; executable rule labels |
+| Synthetic research classification | `build_v21.py`, `configs/research-taxonomy.json` | Authored fictional summaries; construction labels, no benchmark papers or judge labels |
 
 These are recorded metadata, not a conclusion that every source is cleared for
 commercial redistribution. AG News and SST-5 in particular need provenance/license

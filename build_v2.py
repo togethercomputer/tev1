@@ -10,7 +10,7 @@ from pathlib import Path
 PROJECT = Path(os.environ.get('OPEN_JEV_ROOT', str(Path(__file__).resolve().parent)))
 sys.path.insert(0, str(PROJECT))
 import build_dataset as v1
-os.environ['HF_HOME'] = str(PROJECT / '.cache/huggingface')
+os.environ.setdefault('HF_HOME', str(PROJECT / '.cache/huggingface'))
 os.environ['HF_HUB_OFFLINE'] = '1'
 os.environ['HF_DATASETS_OFFLINE'] = '1'
 SEED = 'open-jev-v2-20260920-1'

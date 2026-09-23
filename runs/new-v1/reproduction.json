@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "files": {
+    "records/train.jsonl": "81eba531a7e49b7846cf94f386cca6b493de103f5a071676579e985db77697a5",
+    "instruction/train.jsonl": "98de561e584bd975d24ffdae9e864708967af01bcddae9755962ca2e163f2211",
+    "sft/train.jsonl": "e8f4682c20fcea8124a58afbbbb44b4c9209ccf2942b6c1702f81cbc52f6a456",
+    "records/dev.jsonl": "3efbbff9b87c53b7e8c59edda4d4c19ba6405103c2258406475c32defc18dc95",
+    "instruction/dev.jsonl": "add5417e688969e519d70d113f0ce745347e30f19d72b5f560fcad969625fe02",
+    "sft/dev.jsonl": "57aa962271e398e7913459bd7403129d4161498c4821bab4d802a0524dca4c20",
+    "membership.json": "0ead736eb43b3625515e875ee923b07e548025aa5b8abf0e12d6ff6e09c09f9a"
+  },
+  "splits": {
+    "train": {
+      "count": 37840,
+      "tokens": 16929529,
+      "max_tokens": 1526,
+      "sources": {
+        "policy_v2": 12000,
+        "ag_news": 1500,
+        "routing_v2": 6000,
+        "sst5": 2000,
+        "boolq": 3000,
+        "banking77": 3000,
+        "mnli": 5000,
+        "policy": 1500,
+        "research_taxonomy_v21": 3840
+      }
+    },
+    "dev": {
+      "count": 4568,
+      "tokens": 2218673,
+      "max_tokens": 1519,
+      "sources": {
+        "boolq": 400,
+        "sst5": 250,
+        "banking77": 400,
+        "policy_v2": 1200,
+        "routing_v2": 600,
+        "research_taxonomy_v21": 768,
+        "mnli": 550,
+        "ag_news": 250,
+        "policy": 150
+      }
+    }
+  },
+  "method": "Fresh temporary checkout; pinned cached sources; all four builders run in dependency order; final file hashes and split statistics compared with original manifest.",
+  "verified_on": "2026-09-23",
+  "builder_sha256": {
+    "build_dataset.py": "56e3886dad333e2bdedce4a98069f41b6bca27299f3a1861f10e08479c6e791a",
+    "build_v2.py": "9459c1dedf74858f47a752b769bd6cf1205ae677091a4ceccf805f034a98971f",
+    "build_v21.py": "580316f09c05236fb45dc7c88c9e90a72a026a1a8624bc9f57f3126d614b28b2",
+    "build_new_v1.py": "d76c561db622fe90a7616c3833897fb396414a75ebb6331f902efae7ddb1fe6e"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": [
+    "gold conflicts",
+    "ID/prompt consistency",
+    "source export preservation",
+    "group/state/prompt split separation",
+    "all prior heldout states excluded from train",
+    "Qwen template and completion alignment",
+    "token counts independently recomputed <=2048"
+  ],
+  "deduplication": {
+    "train": {
+      "input_rows": 43840,
+      "exact_duplicates_removed": 6000,
+      "unique_rows": 37840
+    },
+    "dev": {
+      "input_rows": 4568,
+      "exact_duplicates_removed": 0,
+      "unique_rows": 4568
+    }
+  }
+}

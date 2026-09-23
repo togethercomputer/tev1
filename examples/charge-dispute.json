@@ -1,0 +1,26 @@
+{
+  "state": "Customer message: Hi, I checked my statement and your company charged my card twice for the October subscription. The amounts are both $19.99 on the same day. I have not changed my plan.",
+  "question": "Which listed support intent best matches this customer's message?",
+  "options": [
+    {
+      "label": "A",
+      "key": "duplicate_charge",
+      "description": "The customer reports being charged more than once."
+    },
+    {
+      "label": "B",
+      "key": "cancel_subscription",
+      "description": "The customer wants to end or downgrade a subscription."
+    },
+    {
+      "label": "C",
+      "key": "card_declined",
+      "description": "The customer reports a payment that failed or was declined."
+    },
+    {
+      "label": "D",
+      "key": "none",
+      "description": "None of the listed intents matches."
+    }
+  ]
+}

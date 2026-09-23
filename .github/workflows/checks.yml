@@ -10,5 +10,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Offline unit tests and frozen evaluation checks
-        run: python -m unittest -v
+      - name: Install locked dependencies
+        run: |
+          python -m pip install uv
+          uv sync --locked --extra train
+      - name: Offline unit tests and current run evidence
+        run: uv run --extra train python -m unittest -v

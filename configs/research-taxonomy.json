@@ -1,0 +1,125 @@
+{
+  "question": "You are a research librarian shelving AI papers into a fixed collection. Choose the ONE topic the paper is fundamentally about \u2014 the shelf a reader looking for this work would browse.\nJudge what the paper CONTRIBUTES, not what it mentions. Ignore topics that merely appear as evaluation benchmarks, baselines, related work, or motivation.\nA paper that trains a model with reinforcement learning is only rl-for-reasoning if the RL method is the contribution.\nA benchmark, dataset, or evaluation paper belongs to the topic it evaluates, not to a generic evaluation shelf.\narXiv categories are a hint, not the answer: cs.AI and cs.LG are catch-alls, but cs.CV, cs.RO, cs.CL, cs.SE and cs.SD are informative.",
+  "options": [
+    {
+      "label": "A",
+      "key": "reasoning-methods",
+      "description": "Reasoning methods. Techniques that improve how a model deliberates: chain-of-thought, latent or implicit reasoning, self-consistency, thinking budgets, and knowing when to stop thinking."
+    },
+    {
+      "label": "B",
+      "key": "rl-for-reasoning",
+      "description": "RL for reasoning. Reinforcement learning applied to train reasoning ability, including RLVR, verifiable rewards, reward design, and exploration for reasoning models."
+    },
+    {
+      "label": "C",
+      "key": "agent-training",
+      "description": "Agent training and self-evolution. Training agents: environment synthesis, self-evolving and self-improving agent loops, agent RL frameworks, and agent post-training recipes."
+    },
+    {
+      "label": "D",
+      "key": "agent-benchmarks",
+      "description": "Agent benchmarks and computer use. Evaluating agents on realistic tasks: computer-use and GUI agents, tool-use benchmarks, long-horizon task suites, and agent safety evaluation."
+    },
+    {
+      "label": "E",
+      "key": "coding-agents",
+      "description": "Coding agents. Software engineering with LLMs: SWE-style agents and harnesses, repository-level bug fixing, code generation models, and coding benchmarks."
+    },
+    {
+      "label": "F",
+      "key": "search-agents",
+      "description": "Search and deep research. Information-seeking agents: deep research systems, open-web search agents, retrieval-augmented agents, and their training data and benchmarks."
+    },
+    {
+      "label": "G",
+      "key": "agent-skills",
+      "description": "Agent skills and memory. Reusable agent capability: skill acquisition, distillation and libraries, procedural memory, and transferable lessons from trajectories."
+    },
+    {
+      "label": "H",
+      "key": "long-context",
+      "description": "Long context and attention. Extending or serving long context: sparse and linear attention architectures, KV-cache compression, memory-augmented generation, and long-context training."
+    },
+    {
+      "label": "I",
+      "key": "diffusion-lms",
+      "description": "Diffusion LMs and decoding. Diffusion and non-autoregressive language models, parallel and speculative decoding, and sampling or decoding strategies."
+    },
+    {
+      "label": "J",
+      "key": "model-efficiency",
+      "description": "Efficiency and serving. Making models cheaper to train or run: distillation, quantization, sparsity, mixture-of-experts, inference engines, and serving systems."
+    },
+    {
+      "label": "K",
+      "key": "model-architecture",
+      "description": "Model architecture. Novel model architectures as the contribution: attention alternatives, linear and state-space models, hybrid or recurrent designs, biologically motivated architectures, and architectural scaling studies."
+    },
+    {
+      "label": "L",
+      "key": "data-curation",
+      "description": "Data and synthetic generation. Training data itself: pretraining corpus construction, synthetic data generation, data filtering, deduplication, and data mixture studies."
+    },
+    {
+      "label": "M",
+      "key": "interpretability-analysis",
+      "description": "Interpretability and analysis. Understanding why models behave as they do: mechanistic interpretability, sparse autoencoders, probing, scaling and empirical laws, emergent phenomena, and hallucination analyses."
+    },
+    {
+      "label": "N",
+      "key": "vlm-architectures",
+      "description": "Vision-language models. Multimodal LLM architecture and training: unified understanding and generation, visual representation alignment, and general-purpose VLM technical reports."
+    },
+    {
+      "label": "O",
+      "key": "image-generation",
+      "description": "Image generation and editing. Text-to-image and image-editing models: diffusion transformers, autoregressive image models, and image generation foundation models."
+    },
+    {
+      "label": "P",
+      "key": "video-generation",
+      "description": "Video generation and world models. Generating or simulating video: long-form and interactive video generation, controllable video synthesis, and generative video world models."
+    },
+    {
+      "label": "Q",
+      "key": "video-understanding",
+      "description": "Video understanding. Comprehending existing video: video question answering, temporal grounding, video reasoning, and video understanding benchmarks."
+    },
+    {
+      "label": "R",
+      "key": "spatial-3d",
+      "description": "3D and spatial intelligence. 3D and 4D scene generation, reconstruction, spatial reasoning, point clouds, and 3D detection or perception."
+    },
+    {
+      "label": "S",
+      "key": "document-ocr",
+      "description": "Document AI and OCR. Document parsing and intelligence: OCR models, layout and table extraction, document-to-markdown conversion, and visual document understanding."
+    },
+    {
+      "label": "T",
+      "key": "audio-speech",
+      "description": "Audio, speech, and omni-modal. Speech recognition and synthesis, music and audio generation, and omni-modal models that jointly handle audio with text or vision."
+    },
+    {
+      "label": "U",
+      "key": "robot-policies",
+      "description": "Robot policies. Vision-language-action models, robot manipulation and navigation policies, embodied control, and robot learning from demonstration or simulation."
+    },
+    {
+      "label": "V",
+      "key": "science-medicine",
+      "description": "Science and medicine. AI applied to scientific and medical domains: scientific foundation models, discovery and hypothesis generation, clinical reasoning, and medical imaging."
+    },
+    {
+      "label": "W",
+      "key": "research-automation",
+      "description": "Research automation. Automating the research workflow itself: paper writing and review assistance, literature synthesis, and paper-to-artifact generation."
+    },
+    {
+      "label": "X",
+      "key": "safety-alignment",
+      "description": "Safety and alignment. Making models behave: alignment and preference-tuning methods, jailbreak and adversarial robustness, guardrails and refusal behaviour, and misuse or societal-risk evaluation."
+    }
+  ]
+}

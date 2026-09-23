@@ -1,134 +1,91 @@
-# Dataset recipe
+# Building the tev1-4B-experimental dataset
 
-Dataset starter for fine-tuning Qwen3.5-2B into a single-token decision model.
-This page describes data generation; see the root README for the trained model and inference tools.
-It uses five public datasets plus deterministic, programmatically labeled policy cases.
+The final dataset is `data/new-v1`: 37,840 training examples and 4,568 development
+examples. Training contains 16,929,529 tokens; development contains 2,218,673.
+The longest exported sequence is 1,526 tokens.
 
-## Built dataset
+For a fresh checkout, run `uv run python fetch_sources.py` followed by
+`uv run python build_all.py`. The wrapper runs the stages below in order, stops
+on the first failure, and refuses existing output directories before starting.
+`--dry-run` prints the build order without writing files.
 
-| Source | Train | Dev | Calibration | Test |
-|---|---:|---:|---:|---:|
-| MultiNLI | 2,500 | 250 | 250 | 250 |
-| BoolQ | 2,000 | 200 | 200 | 200 |
-| Banking77 | 2,000 | 200 | 200 | 200 |
-| AG News | 1,000 | 100 | 100 | 100 |
-| SST-5 | 1,000 | 100 | 100 | 100 |
-| Synthetic policy | 1,500 | 150 | 150 | 150 |
-| **Total** | **10,000** | **1,000** | **1,000** | **1,000** |
+## Build order
 
-`policy_transfer` adds 300 examples from two rule structures absent from training.
-It measures compositional transfer within the synthetic policy domain, not broad
-out-of-domain capability. Public benchmark exposure during base-model pretraining
-is unknown.
-
-The first build contains 2,160,836 training tokens including prompt and end token.
-The median training example is 207 tokens; the longest example across all splits
-is 1,370 tokens. Nothing is truncated; the build fails above the 2,048-token budget.
-
-## Files to use
-
-- `data/v1/instruction/train.jsonl`: **recommended training export**. Exact Qwen
-  non-thinking chat prefix in `prompt`, answer letter plus `<|im_end|>` in `completion`.
-  Use Together's instruction format and completion-only loss (`train_on_inputs=False`).
-  Do not apply a second chat template to this export.
-- `data/v1/instruction/dev.jsonl`: corresponding development/validation export.
-- `data/v1/sft/*.jsonl`: standard `messages` format, for servers with verified
-  non-thinking template handling. The messages alone do not encode
-  `enable_thinking=False`; this is why the pre-rendered export is provided.
-- `data/v1/records/*.jsonl`: full records, semantic answers, source revisions,
-  original row IDs, group IDs, transformations, and token counts. Keep these for
-  audits/evaluation; do not upload as conversational SFT data.
-- `data/v1/manifest.json`: source lock, file hashes, counts, label distributions,
-  token lengths, and integrity checks.
-- `data/v1/samples.json`: three training examples per source for inspection.
-- `sources.lock.json`: immutable Hugging Face dataset/tokenizer revisions.
-- `uv.lock`: pinned Python environment.
-
-The evaluator-facing records and both training exports have identical row order
-within each split. The model sees no source IDs, split names, or ground-truth metadata.
-The tokenizer was downloaded; model weights were not.
-
-## Reproduce
+From the repository root, after `uv sync --locked`:
 
 ```bash
-cd open-jev
-uv sync --locked
 uv run python fetch_sources.py
-uv run python -m unittest -v
-uv run python build_dataset.py --output data/v1-rebuild
-uv run python validate_dataset.py data/v1-rebuild
-```
-
-Source revisions are resolved only if missing from `sources.lock.json`; existing
-pins are reused. Source fetching uses the public Hugging Face Hub and project-local
-`.cache/`. Once cached, add `HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1` before build
-commands to build without network access. Builds refuse to overwrite output folders.
-
-To check the delivered data without downloading anything:
-
-```bash
+uv run python build_dataset.py
 uv run python validate_dataset.py data/v1
+uv run python build_v2.py
+uv run python validate_v2.py data/v2
+uv run python build_v21.py
+uv run python validate_v21.py data/v2.1
+uv run python build_new_v1.py
 ```
 
-## Task conversion
+`fetch_sources.py` downloads public datasets and a tokenizer at the revisions in
+`sources.lock.json`; it does not download model weights. The following builders
+use that cache. Keep the source lock unchanged when reproducing the saved data.
+The historical exports use the pinned **Qwen3.5-2B tokenizer**, including its
+non-thinking chat template; retaining this pin preserves the 4B recipe's original
+bytes. This is a data-format pin, not the training base model.
 
-- MultiNLI: premise in state, hypothesis in question; original classes mapped to
-  supported / insufficient information / contradicted.
-- BoolQ: passage plus yes/no question. No fabricated unknown labels.
-- Banking77: 4, 6, or 8 candidate intents, with up to two lexically similar hard
-  negatives and additional random negatives. About 15% replace the true class
-  with a correct none-of-the-above; another 15% add an incorrect none distractor.
-  This is **candidate-set classification, not a full 77-way benchmark**.
-  None labels assume the dataset's intent taxonomy is mutually exclusive.
-- AG News: four original topic classes.
-- SST-5: five ordered sentiment levels; level order is preserved.
-- Policy: four training rule trees over numerical thresholds and a boolean field,
-  plus two unseen transfer trees. Each group contains a positive record, a
-  one-fact-flipped negative, and the same record with that decisive fact omitted.
-  Missing-data labels enumerate all completions rather than treating missing as false.
-  These are artificial rules to follow as written, not real retailer policies.
+| Builder | Role |
+|---|---|
+| `build_dataset.py` | Original public-data and synthetic-policy mixture |
+| `build_v2.py` | Additional public data, missing-information policies, priority routing, and replay |
+| `build_v21.py` | Adds fictional research-classification exercises using `configs/research-taxonomy.json` |
+| `build_new_v1.py` | Merges v1 and v2.1 train/dev, removing 6,000 exact replay duplicates |
 
-Categorical option order is shuffled deterministically and correct labels are
-remapped. Labels A–H are verified as single tokens both alone and at the actual
-Qwen non-thinking assistant boundary. Score levels use their canonical order.
-The instruction completion adds a termination token after the single answer token.
+No v3/v3.1 augmentation enters the final data. The final builder checks every
+available earlier non-training split for normalized-state overlap, including
+v3/v3.1 if those local datasets exist. Those optional checks do not require the
+removed experimental builders.
 
-## Splits and evaluation
+All builders refuse to overwrite an output directory. On an existing checkout,
+validate the intermediates and skip their build commands. To rebuild only the
+final merge, choose a fresh path with `build_new_v1.py --output data/new-v1-check`.
+Intermediate inputs remain at their documented `data/v*` paths.
 
-The seed is `20260920`. Development and calibration examples come from upstream
-training splits; test examples come from official held-out splits (BoolQ validation;
-MultiNLI matched + mismatched validation; the other sources' test splits).
+## Contents
 
-We reserve all upstream held-out normalized states before selecting training data,
-then retain at most one record per normalized state. This keeps repeated premises
-and passages together. All synthetic siblings stay in one partition. Validation
-rejects cross-split group, normalized-state, and exact-prompt overlaps.
+| Training source | Examples |
+|---|---:|
+| MultiNLI | 5,000 |
+| BoolQ | 3,000 |
+| Banking77 | 3,000 |
+| AG News | 1,500 |
+| SST-5 | 2,000 |
+| Original synthetic policies | 1,500 |
+| Additional synthetic policies | 12,000 |
+| Priority routing | 6,000 |
+| Synthetic research classification | 3,840 |
+| **Total** | **37,840** |
 
-Deduplication normalizes Unicode, case, punctuation, and whitespace. It does not
-prove the absence of semantic paraphrases or pretraining contamination. Original
-text and source labels are retained, including upstream annotation noise.
+Each build exports `records/` (labels and provenance), `sft/` (chat messages), and
+`instruction/` (rendered prompt/completion pairs). Upload the instruction files.
+The final merge independently checks chat-template alignment, answer-plus-EOS
+completions, token counts, conflicting duplicates, and split isolation.
 
-Sampling balances original classes within each source where possible. Resulting
-calibration measures apply to this artificial mixture; they are **not production
-calibration guarantees**. Fit on calibration only, select models on dev, and reserve
-test + policy_transfer for final assessment. Fit deployment calibration on data
-with the actual application's distribution.
+`manifest.json` records counts and hashes; `membership.json` maps final examples
+to their inputs; `validation.json` records the checks. The original final
+[manifest](../runs/new-v1/dataset-manifest.json) is retained for comparison.
+Builder hashes change when code changes; reproduced instruction-file hashes
+should match the original manifest.
 
-Recommended comparisons: untuned vs fine-tuned accuracy by source; NLL/Brier/ECE;
-answer changes under option reordering; errors above a chosen confidence threshold;
-paired-policy accuracy (all three siblings); local quantized vs original precision.
-For policy-level uncertainty estimates, resample groups rather than individual siblings.
+## Adapt the recipe
 
-This document describes the dataset recipe, not the training provenance of any specific checkpoint. See ../MODEL_CARD.md.
+For a new task, use `state`, `question`, and `options` with consecutive labels A–X,
+unique semantic keys, and descriptions. Supply `answer` and `answer_key` for
+supervision. Use the same system instruction and JSON rendering as
+`build_dataset.messages`; use the pinned tokenizer with `enable_thinking=False`
+to render the prompt and append the correct letter plus its EOS token as the
+completion. Keep every variant of a source document or synthetic case in one split.
 
-## Attribution and scope
+Public labels can be noisy. Synthetic research examples share vocabulary and
+templates; their count does not represent independent real papers. Historical
+benchmark feedback informed the recipe, so those benchmarks are development
+evidence. Reserve a new final test for your own model.
 
-See [DATA_SOURCES.md](../DATA_SOURCES.md) for source links and recorded license metadata. Code and
-dataset licensing are distinct: the combined dataset is not assigned a blanket
-open-source license. Generated files and source caches are excluded from Git.
-
-The mixture is inspired by [Kev's original recipe](https://github.com/jaredpalmer/kev/blob/main/MODEL_CARD.md#training-data),
-adapted to standard token-target SFT rather than Kev's pointer head.
-[Fireworks' classifier tutorial](https://fireworks.ai/blog/Finetuning-LLMs-as-Classifiers)
-motivates token labels. [Together's format documentation](https://docs.together.ai/docs/fine-tuning/data-preparation)
-describes the exported instruction/chat schemas.
+Review [source provenance](../DATA_SOURCES.md) before redistributing data.

@@ -2,7 +2,6 @@
 import json,string,sys
 from pathlib import Path
 from collections import defaultdict,Counter
-sys.path.insert(0,'/Users/hassan/dev/open-jev')
 import build_v21 as b
 from transformers import AutoTokenizer
 root=Path(sys.argv[1]) if len(sys.argv)>1 else b.PROJECT/'data/v2.1'

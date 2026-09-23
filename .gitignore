@@ -24,3 +24,6 @@ outputs/
 *.tar
 *.tar.zst
 *.zip
+
+# Local agent state
+.kilo/

@@ -1,0 +1,18 @@
+{
+  "quality": {
+    "decisions": {
+      "n": 1300,
+      "correct": 1180,
+      "changed_predictions": 0,
+      "mean_ms": 312.9556923076923,
+      "failed_attempts": 0
+    },
+    "papers": {
+      "n": 891,
+      "correct": 773,
+      "changed_predictions": 0,
+      "mean_ms": 531.3472708476959,
+      "failed_attempts": 5
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "state": "The museum is open Tuesday through Sunday from 10 a.m. to 6 p.m. It is closed on Mondays.",
+  "question": "Is the museum open on Monday?",
+  "options": [
+    {
+      "label": "A",
+      "key": "yes",
+      "description": "Yes."
+    },
+    {
+      "label": "B",
+      "key": "no",
+      "description": "No."
+    }
+  ]
+}

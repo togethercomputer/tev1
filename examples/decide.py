@@ -35,7 +35,7 @@ def payload(record, model):
     return {"model": model, "messages": [
         {"role": "system", "content": SYSTEM},
         {"role": "user", "content": json.dumps(decision, ensure_ascii=False)}],
-        "temperature": 0, "max_tokens": 8, "logprobs": 5,
+        "temperature": 0, "max_tokens": 8, "logprobs": True, "top_logprobs": 5,
         "response_format": {"type": "regex",
                             "pattern": "(" + "|".join(o["label"] for o in options) + ")"},
         "chat_template_kwargs": {"enable_thinking": False}}
@@ -54,11 +54,11 @@ def select(response, options):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
-    parser.add_argument("--model", default=os.getenv("JEV_MODEL"))
+    parser.add_argument("--model", default=os.getenv("TOGETHER_MODEL") or os.getenv("JEV_MODEL"))
     parser.add_argument("--dry-run", action="store_true", help="Print request; no API call")
     args = parser.parse_args()
     if not args.model:
-        parser.error("Set JEV_MODEL or --model to your deployed endpoint")
+        parser.error("Set TOGETHER_MODEL (or JEV_MODEL) or --model to your deployed endpoint")
     try:
         row = json.loads(args.input.read_text())
         body = payload(row, args.model)
@@ -72,7 +72,7 @@ def main():
             "https://api.together.ai/v1/chat/completions",
             data=json.dumps(body).encode(),
             headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
-                     "User-Agent": "open-jev/0.1"})
+                     "User-Agent": "tev1-4B-experimental/0.1"})
         with urllib.request.urlopen(request, timeout=30) as response:
             result = json.load(response)
         chosen = select(result, row["options"])

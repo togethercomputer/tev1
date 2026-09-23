@@ -1,0 +1,12 @@
+{
+  "base_model": "Qwen/Qwen3.5-4B",
+  "dataset": "new-v1",
+  "training_examples": 37840,
+  "validation_examples": 4568,
+  "checkpoint": "hassan/Qwen3.5-4B-v1-new-69617472-bdc3c2fc",
+  "evaluated_endpoint": "together/Tev1-4B-experimental",
+  "training_job_id": null,
+  "actual_training_settings": null,
+  "evidence": "Local new-v1 dataset manifest and saved Tev1 evaluation/comparison. Comparison reports identical predictions to v1-new on 2,191 examples; not a weight-identity audit.",
+  "verification_limit": "Training job metadata and uploaded-file hashes were not available: Together API returned HTTP 403. The example configuration is the saved proposed recipe, not verified actual job settings."
+}

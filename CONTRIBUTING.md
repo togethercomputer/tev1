@@ -1,20 +1,16 @@
 # Contributing
 
-Use Python 3.12+ and `uv sync --locked`. Run `uv run python -m unittest -v`
-before submitting changes. Dataset validation is a separate step:
-`uv run python validate_dataset.py data/v1` after building or downloading sources.
+Use Python 3.12+ and `uv sync --locked --extra train`. Run
+`uv run python -m unittest -v` before submitting changes. Follow the
+[dataset guide](docs/DATASET.md) for the separate data-build and validation steps.
 
-Keep dataset versions and checkpoint results separate. New training data belongs
-in a new output directory; never replace the frozen `evaluation/v1` evidence with
-results from a different checkpoint. Describe changes to rules, option ordering,
-splits, prompts, or label semantics in the pull request.
+The supported workflow is tev1-4B-experimental on Qwen3.5-4B using `data/new-v1`.
+The v1, v2, and v2.1 builders are intermediate dependencies of that recipe.
+Keep their splits, option ordering, label semantics, and reproducibility intact.
+Write new experiments to fresh output directories and preserve the frozen
+`runs/new-v1` evidence.
 
-Include a small failing example for decision or data bugs. Do not include private
-documents, API keys, model binaries, or source caches. Submit proposed datasets
-with provenance and license information. The code license does not relicense
-third-party training data or model weights.
-
-Useful contributions include base-Qwen comparisons, missing-information cases,
-option-order robustness, local inference verification, and calibration measured
-on a held-out split. Avoid selecting the next model against the published test
-set; once its failures guide training, use a fresh final holdout.
+Include a failing example for decision or data bugs. Do not commit private
+documents, API keys, model binaries, generated datasets, or source caches.
+Contributed data needs provenance and license information. Once test errors
+inform training changes, reserve a new final holdout.

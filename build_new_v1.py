@@ -1,10 +1,11 @@
 """Merge v1 and v2.1 train/dev, removing exact replay duplicates; no new labels."""
-import json,random,collections
+import argparse,json,random,collections
 from pathlib import Path
 import build_v2 as b
-v=b.v1;ROOT=Path(__file__).resolve().parent;OUT=ROOT/'data/new-v1'
+v=b.v1;ROOT=Path(__file__).resolve().parent
 def main():
- assert not OUT.exists(),'Refuse to overwrite existing dataset'
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output',type=Path,default=ROOT/'data/new-v1');args=ap.parse_args();OUT=args.output
+ if OUT.exists():raise SystemExit('Refuse to overwrite existing dataset')
  parts={};exports={};audit={};inputs={};membership={}
  for split in ['train','dev']:
   selected={};by_id={};duplicates=0;input_n=0

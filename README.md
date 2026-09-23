@@ -40,7 +40,7 @@ Requires Python 3.12+ and [uv](https://docs.astral.sh/uv/).
 Run these commands from the repository root:
 
 ```bash
-uv sync --locked --extra train
+uv sync --locked
 uv run python fetch_sources.py
 uv run python build_all.py
 ```
@@ -54,9 +54,9 @@ for validation, provenance, and how to adapt the recipe.
 Preview the training settings, then launch when ready:
 
 ```bash
-uv run --extra train python examples/train_together.py
+uv run python examples/train_together.py
 export TOGETHER_API_KEY='your-key'
-uv run --extra train python examples/train_together.py --launch
+uv run python examples/train_together.py --launch
 ```
 
 `--launch` uploads `data/new-v1/instruction/train.jsonl` and `dev.jsonl` and starts

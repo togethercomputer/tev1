@@ -13,6 +13,6 @@ jobs:
       - name: Install locked dependencies
         run: |
           python -m pip install uv
-          uv sync --locked --extra train
+          uv sync --locked
       - name: Offline unit tests and current run evidence
-        run: uv run --extra train python -m unittest -v
+        run: uv run python -m unittest -v

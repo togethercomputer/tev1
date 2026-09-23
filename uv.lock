@@ -1584,6 +1584,25 @@ wheels = [
 ]
 
 [[package]]
+name = "tev1-4b-experimental"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "datasets" },
+    { name = "jinja2" },
+    { name = "together" },
+    { name = "transformers" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "datasets", specifier = "==4.8.5" },
+    { name = "jinja2", specifier = ">=3.1,<4" },
+    { name = "together", specifier = "==2.23.0" },
+    { name = "transformers", specifier = "==5.17.0" },
+]
+
+[[package]]
 name = "together"
 version = "2.23.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1609,30 +1628,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/36/c0/0fbfe76c8af937e87
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b6/ee/e536dc5a151e1ded20a34f2d21dbbac34ca086d0ccad7158f8da5cdb9d38/together-2.23.0-py3-none-any.whl", hash = "sha256:7490d20ad02f13c776591087669cfdb2c44ad9a3a4da5c4bd7f23c1be1c555d4", size = 435031, upload-time = "2026-07-13T19:56:25.66Z" },
 ]
-
-[[package]]
-name = "tev1-4b-experimental"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "datasets" },
-    { name = "jinja2" },
-    { name = "transformers" },
-]
-
-[package.optional-dependencies]
-train = [
-    { name = "together" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "datasets", specifier = "==4.8.5" },
-    { name = "jinja2", specifier = ">=3.1,<4" },
-    { name = "together", marker = "extra == 'train'", specifier = "==2.23.0" },
-    { name = "transformers", specifier = "==5.17.0" },
-]
-provides-extras = ["train"]
 
 [[package]]
 name = "tokenizers"

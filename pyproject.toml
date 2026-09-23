@@ -5,9 +5,4 @@ description = "Fine-tune Qwen3.5-4B decision models on Together AI"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.12"
-dependencies = ["datasets==4.8.5", "transformers==5.17.0", "jinja2>=3.1,<4"]
-
-[project.optional-dependencies]
-train = [
-    "together==2.23.0",
-]
+dependencies = ["datasets==4.8.5", "transformers==5.17.0", "jinja2>=3.1,<4", "together==2.23.0"]

@@ -38,7 +38,7 @@ class WorkflowTests(unittest.TestCase):
         try:
             from together import Together
         except ImportError:
-            self.skipTest('Install the train extra to verify SDK serialization')
+            self.fail('Run uv sync --locked to install the required Together SDK')
         client = Together(api_key='fixture')
         # Intercept submission and model-limits lookup so this test is offline.
         with patch.object(client.fine_tuning, 'estimate_price',

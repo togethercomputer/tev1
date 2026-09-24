@@ -2,11 +2,13 @@
 
 We fine-tuned **Qwen3.5-4B on Together AI** to make decisions: give it context,
 a question, and 2–24 options, and it returns one answer letter. We're calling
-it **tev1-4B-experimental**. A separate blog post will cover the project, how we
-fine-tuned it, and what we learned.
+it **tev1-4B-experimental**.
 
 This repo contains the data recipe, training example, and saved results so you
 can fine-tune your own decision model.
+
+- [Learn how to train your own classifier for $17](https://www.together.ai/blog/how-to-train-your-own-jev)
+- [Full model weights](https://huggingface.co/togethercomputer/Tev1-4B-experimental)
 
 ```text
 State       Returns are allowed within 30 days. This purchase was 12 days ago.
@@ -40,7 +42,7 @@ Requires Python 3.12+ and [uv](https://docs.astral.sh/uv/).
 Run these commands from the repository root:
 
 ```bash
-uv sync --locked --extra train
+uv sync --locked
 uv run python fetch_sources.py
 uv run python build_all.py
 ```
@@ -54,9 +56,9 @@ for validation, provenance, and how to adapt the recipe.
 Preview the training settings, then launch when ready:
 
 ```bash
-uv run --extra train python examples/train_together.py
+uv run python examples/train_together.py
 export TOGETHER_API_KEY='your-key'
-uv run --extra train python examples/train_together.py --launch
+uv run python examples/train_together.py --launch
 ```
 
 `--launch` uploads `data/new-v1/instruction/train.jsonl` and `dev.jsonl` and starts

@@ -17,8 +17,8 @@ verified export of the historical job's settings.
 | Early stopping / seed | Disabled / 42 |
 | Train on inputs | False; completion-only loss |
 
-Install the locked SDK with `uv sync --locked --extra train`. Preview with
-`uv run --extra train python examples/train_together.py`; append `--launch` to
+Install the locked SDK with `uv sync --locked`. Preview with
+`uv run python examples/train_together.py`; append `--launch` to
 upload and start a billed job. The script waits for both uploaded files to finish
 processing before submission. It uses the Python SDK directly to set LoRA rank.
 See Together's [fine-tuning API reference](https://docs.together.ai/reference/post-fine-tunes).
@@ -47,23 +47,23 @@ request before calling the endpoint. Inference and hosting have separate charges
 
 ## Follow the job and deploy from the CLI
 
-If using a `.env` file, load it explicitly for each command. Use the locked
-`train` extra so the Python example and `tg` use the same SDK:
+If using a `.env` file, load it explicitly for each command. The Together SDK and `tg` CLI are installed by `uv sync --locked`, so the
+Python example and CLI use the same version:
 
 ```bash
-uv sync --locked --extra train
+uv sync --locked
 cp .env.example .env
 # Edit .env to set TOGETHER_API_KEY, then preview or launch:
-uv run --extra train --env-file .env python examples/train_together.py
-uv run --extra train --env-file .env python examples/train_together.py --launch
+uv run --env-file .env python examples/train_together.py
+uv run --env-file .env python examples/train_together.py --launch
 ```
 
 Replace `YOUR_JOB_ID` below with the ID printed by that launch. Use the same ID
 for status and output-model lookup:
 
 ```bash
-uv run --extra train --env-file .env tg fine-tuning retrieve YOUR_JOB_ID
-uv run --extra train --env-file .env tg fine-tuning retrieve YOUR_JOB_ID --json
+uv run --env-file .env tg fine-tuning retrieve YOUR_JOB_ID
+uv run --env-file .env tg fine-tuning retrieve YOUR_JOB_ID --json
 ```
 
 Once training completes, copy `model_output_name` from the JSON. In the next
@@ -71,7 +71,7 @@ command, replace `MODEL_OUTPUT_NAME` and choose hardware available to your accou
 that supports your model. Creating the endpoint starts separately billed hosting:
 
 ```bash
-uv run --extra train --env-file .env tg endpoints create MODEL_OUTPUT_NAME \
+uv run --env-file .env tg endpoints create MODEL_OUTPUT_NAME \
   --hardware 1x_nvidia_h100_80gb_sxm --display-name tev1-4B-experimental --wait
 ```
 
@@ -89,7 +89,7 @@ model to emit that JSON object.
 Stop your dedicated endpoint when finished, using its **ID**:
 
 ```bash
-uv run --extra train --env-file .env tg endpoints stop YOUR_ENDPOINT_ID
+uv run --env-file .env tg endpoints stop YOUR_ENDPOINT_ID
 ```
 
 Training cost and duration vary with settings and provider capacity. The original

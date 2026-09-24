@@ -1,6 +1,6 @@
 # Contributing
 
-Use Python 3.12+ and `uv sync --locked --extra train`. Run
+Use Python 3.12+ and `uv sync --locked`. Run
 `uv run python -m unittest -v` before submitting changes. Follow the
 [dataset guide](docs/DATASET.md) for the separate data-build and validation steps.
 

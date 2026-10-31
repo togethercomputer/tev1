@@ -15,6 +15,23 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from examples.decide import payload, select
 
 
+REQUIRED_FIELDS = ('id', 'source', 'group_id', 'answer', 'answer_key')
+
+
+def validate_records(rows):
+    """Reject malformed records before any billed request is sent."""
+    if not rows:
+        raise ValueError('Records must be nonempty')
+    for index, row in enumerate(rows, 1):
+        if not isinstance(row, dict):
+            raise ValueError(f'Record {index} must be a JSON object')
+        missing = [field for field in REQUIRED_FIELDS if field not in row]
+        if missing:
+            raise ValueError(f'Record {row.get("id", index)!r} is missing {", ".join(missing)}')
+    if len({row['id'] for row in rows}) != len(rows):
+        raise ValueError('Record IDs must be unique')
+
+
 def summarize(rows):
     return {"requests": len(rows), "correct": sum(r['correct'] for r in rows),
             "accuracy": sum(r['correct'] for r in rows) / len(rows) if rows else None,
@@ -40,17 +57,25 @@ def main():
     if not key:
         parser.error(f'Set {key_name}')
     raw = args.records.read_bytes()
-    rows = [json.loads(line) for line in raw.splitlines() if line.strip()]
+    try:
+        rows = [json.loads(line) for line in raw.splitlines() if line.strip()]
+    except json.JSONDecodeError as exc:
+        parser.error(f'Invalid JSON record: {exc}')
     if args.limit:
         rows = rows[:args.limit]
-    if not rows or len({r['id'] for r in rows}) != len(rows):
-        parser.error('Records must be nonempty with unique IDs')
-    for row in rows:
-        payload(row, args.model)
-        selected = next((o for o in row['options'] if o['label'] == row['answer']), None)
-        if selected is None or selected['key'] != row['answer_key']:
-            parser.error('Gold label and semantic key disagree')
-    args.output.mkdir(parents=True, exist_ok=False)
+    try:
+        validate_records(rows)
+        for row in rows:
+            payload(row, args.model)
+            selected = next((o for o in row['options'] if o['label'] == row['answer']), None)
+            if selected is None or selected['key'] != row['answer_key']:
+                raise ValueError('Gold label and semantic key disagree')
+    except ValueError as exc:
+        parser.error(str(exc))
+    try:
+        args.output.mkdir(parents=True, exist_ok=False)
+    except FileExistsError:
+        parser.error(f'Output directory already exists: {args.output}. Choose a new --output.')
     url = 'https://api.together.ai/v1/chat/completions'
 
     def one(row):

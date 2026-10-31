@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 
 from examples.decide import payload, select, SYSTEM
-from scripts.evaluate import summarize
+from scripts.evaluate import summarize, validate_records
 from build_dataset import SYSTEM as TRAINING_SYSTEM
 
 ROOT = Path(__file__).resolve().parent
@@ -54,6 +54,28 @@ class DecisionTests(unittest.TestCase):
                             {'correct': False, 'valid': False, 'status': 503}])
         self.assertEqual(result['accuracy'], .5)
         self.assertEqual(result['http_errors'], 1)
+
+
+class EvaluationInputTests(unittest.TestCase):
+    """Malformed records must fail before any billed request is sent."""
+
+    def setUp(self):
+        row = json.loads((ROOT / 'examples/return-window.json').read_text())
+        row.update(id='r1', source='fixture', group_id='g1', answer='A', answer_key='yes')
+        self.row = row
+
+    def test_missing_context_field_rejected(self):
+        for field in ('id', 'source', 'group_id', 'answer', 'answer_key'):
+            records = [dict(self.row)]
+            del records[0][field]
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, field):
+                validate_records(records)
+
+    def test_duplicate_and_empty_records_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'unique'):
+            validate_records([self.row, dict(self.row)])
+        with self.assertRaisesRegex(ValueError, 'nonempty'):
+            validate_records([])
 
 
 if __name__ == '__main__':
